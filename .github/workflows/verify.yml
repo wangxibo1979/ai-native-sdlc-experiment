@@ -12,3 +12,4 @@ jobs:
           distribution: temurin
           java-version: '17'
       - run: python3 run_tests.py
+      - run: python3 http-experiment/test_http.py
