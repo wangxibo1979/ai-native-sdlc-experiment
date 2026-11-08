@@ -1,0 +1,3 @@
+{"case": "A", "technical": "PASS", "business": "NOT APPROVED", "authorization": "NOT AUTHORIZED", "execution": "NOT DEPLOYED", "post_release": "NOT VERIFIED", "eligible_for_simulated_release_flow": false, "real_production_release_success": false}
+{"case": "B", "technical": "PASS", "business": "SIMULATED_PASS", "authorization": "SIMULATED_APPROVED", "execution": "NOT DEPLOYED", "post_release": "NOT VERIFIED", "eligible_for_simulated_release_flow": true, "real_production_release_success": false}
+V5_TWO_CASES_MEET_EXPECTATIONS; NO REAL APPROVAL OR DEPLOYMENT

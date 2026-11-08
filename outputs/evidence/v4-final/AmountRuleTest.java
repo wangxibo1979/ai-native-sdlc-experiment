@@ -1,0 +1,1 @@
+public class AmountRuleTest {public static void main(String[] args){AmountRule.validate(100);try{AmountRule.validate(0);throw new AssertionError("zero accepted");}catch(IllegalArgumentException expected){}System.out.println("PASS amount rule");}}

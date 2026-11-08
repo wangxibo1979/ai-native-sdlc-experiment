@@ -1,0 +1,81 @@
+{
+  "base_sha": "232d4c9763d9251db25e2af432b113637dc42c29",
+  "local_current_directory_is_git_repository": false,
+  "remote_rule_files_found": [],
+  "remote_reports_found": [],
+  "local_report_read": "AI-Native最终实验分析与落地方案v4.md",
+  "code_files_read": [
+    "content",
+    "encoding",
+    "sha",
+    "display_url",
+    "display_title"
+  ],
+  "git_clone_error": "proxy 127.0.0.1 connection failed; connector snapshot used",
+  "branches": [
+    {
+      "name": "experiment/archive-negative",
+      "commit": {
+        "sha": "acff9f339e27aca4e69f55b065f85b71b0a6a721",
+        "url": "https://api.github.com/repos/wangxibo1979/ai-native-sdlc-experiment/commits/acff9f339e27aca4e69f55b065f85b71b0a6a721"
+      },
+      "protected": false
+    },
+    {
+      "name": "experiment/concurrency-a",
+      "commit": {
+        "sha": "a2ef08fb4dcb1a4b19d31f4dbb58ea2fd6c6b321",
+        "url": "https://api.github.com/repos/wangxibo1979/ai-native-sdlc-experiment/commits/a2ef08fb4dcb1a4b19d31f4dbb58ea2fd6c6b321"
+      },
+      "protected": false
+    },
+    {
+      "name": "experiment/concurrency-b",
+      "commit": {
+        "sha": "95b04f0a04cd6166b5a847a0d129e6a418dfc410",
+        "url": "https://api.github.com/repos/wangxibo1979/ai-native-sdlc-experiment/commits/95b04f0a04cd6166b5a847a0d129e6a418dfc410"
+      },
+      "protected": false
+    },
+    {
+      "name": "experiment/concurrency-base",
+      "commit": {
+        "sha": "d35b26ee72d4815ddf1d40e2094f1fc3d0a10c57",
+        "url": "https://api.github.com/repos/wangxibo1979/ai-native-sdlc-experiment/commits/d35b26ee72d4815ddf1d40e2094f1fc3d0a10c57"
+      },
+      "protected": false
+    },
+    {
+      "name": "experiment/gate-candidate",
+      "commit": {
+        "sha": "9ed33f259c39c431f5d5cfc8b8bb9bb91f4370da",
+        "url": "https://api.github.com/repos/wangxibo1979/ai-native-sdlc-experiment/commits/9ed33f259c39c431f5d5cfc8b8bb9bb91f4370da"
+      },
+      "protected": false
+    },
+    {
+      "name": "experiment/gate-target",
+      "commit": {
+        "sha": "ae6b33ecfa3e439a6c1d7c6bb297e5c7c26a781a",
+        "url": "https://api.github.com/repos/wangxibo1979/ai-native-sdlc-experiment/commits/ae6b33ecfa3e439a6c1d7c6bb297e5c7c26a781a"
+      },
+      "protected": true
+    },
+    {
+      "name": "experiment/idempotency",
+      "commit": {
+        "sha": "232d4c9763d9251db25e2af432b113637dc42c29",
+        "url": "https://api.github.com/repos/wangxibo1979/ai-native-sdlc-experiment/commits/232d4c9763d9251db25e2af432b113637dc42c29"
+      },
+      "protected": false
+    },
+    {
+      "name": "main",
+      "commit": {
+        "sha": "36c819115d3fdc8c281f710067311fe9232e20bf",
+        "url": "https://api.github.com/repos/wangxibo1979/ai-native-sdlc-experiment/commits/36c819115d3fdc8c281f710067311fe9232e20bf"
+      },
+      "protected": true
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "base": "65da3cf2e31f99e594bc055233058c5facf41913",
+  "A": "ea8e2d6d5d8c6208e10918607d4fb34c7b546333",
+  "B": "af49b41afeaaa0607f72b8656406762cd92da31f",
+  "pre_reconcile": "e0c3623817e4703f83462d97876f1607e6954c42",
+  "final": "4f6e2ab98e00bb441064a9d4c03746c9c08d7800",
+  "git_text_merge_exit": 0,
+  "stale_missing_scenario_archive_exit": 1,
+  "semantic_archive_exit": 0,
+  "unsafe_lost_review": true,
+  "final_rules": [
+    "REVIEW",
+    "reject non-positive amount"
+  ],
+  "decision": "Synthetic rules declared upfront; retain both. Real conflicting business choices require human owner."
+}

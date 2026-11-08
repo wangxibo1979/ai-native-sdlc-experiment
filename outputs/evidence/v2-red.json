@@ -1,0 +1,15 @@
+{
+  "label": "v2-red",
+  "command": [
+    "java",
+    "-cp",
+    "validation/v2/build",
+    "PaymentLedgerTest"
+  ],
+  "cwd": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation",
+  "start": "2026-11-08T15:26:24.433658+00:00",
+  "end": "2026-11-08T15:26:32.738650+00:00",
+  "actual_exit": 1,
+  "expected_exit": 1,
+  "log": "v2-red.log"
+}

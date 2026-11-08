@@ -1,0 +1,26 @@
+name: v41-validation
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  supplemental:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --global @fission-ai/openspec@1.13.1
+      - run: python3 validation/run_all.py
+        env:
+          PYTHONIOENCODING: utf-8
+          OPENSPEC_TELEMETRY: '0'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v41-execution-evidence
+          path: outputs/evidence

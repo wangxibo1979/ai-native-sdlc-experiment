@@ -1,0 +1,6 @@
+PASS first valid request
+PASS retry does not reexecute
+PASS conflicting parameters rejected without side effect
+PASS invalid input has no side effect
+PASS failure before commit can be retried
+CASES=5 FAILURES=0
