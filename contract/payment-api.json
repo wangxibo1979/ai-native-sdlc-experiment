@@ -1,1 +1,1 @@
-{"version":1,"request":{"orderId":"string","amountFen":"positive integer","currency":"CNY"},"response":{"paymentId":"string"}}
+{"version":1,"request":{"orderId":"string","amountFen":"positive integer","currency":"USD"},"response":{"paymentId":"string"}}
