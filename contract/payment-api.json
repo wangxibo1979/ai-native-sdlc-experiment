@@ -1,1 +1,1 @@
-{"version":1,"request":{"orderId":"string","amountFen":"positive integer","currency":"CNY"},"response":{"paymentId":"string"}}
+{"version":2,"request":{"orderId":"string (idempotency key)","amountFen":"positive integer","currency":"CNY"},"response":{"paymentId":"string"},"retry":"same orderId and amount returns same paymentId; changed amount is rejected"}
