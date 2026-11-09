@@ -11,7 +11,9 @@ Completion of these bounded activities does not turn remote CI integration, real
 
 ## Authorized v4.2 closure (same sole formal task list)
 
-- [ ] A: preserve before/after evidence; independently fix mandatory-target blocking semantics; regression RED/GREEN and local controls.
-- [ ] B: retain existing build/HTTP/OpenSpec checks; run the same entry in an isolated real Actions PR; record failure/zero/missing/repair SHAs and logs without protected merges.
-- [ ] C: independent spec-first Agent B review and evidence-based simulated decision; explicitly separate actual GitHub identities and approvals.
-- [ ] Deliver the separate closure report, evidence integrity/cost and a scoped freeze decision, preserving previous reports.
+- [x] A: preserve before/after evidence; independently fix mandatory-target blocking semantics; regression RED/GREEN and local controls.
+- [x] B: retain existing build/HTTP/OpenSpec checks; run the same entry in an isolated real Actions PR; record failure/zero/missing/repair SHAs and logs without protected merges.
+- [x] C: independent spec-first Agent B review and evidence-based simulated decision; explicitly separate actual GitHub identities and approvals.
+- [x] Deliver the separate closure report, evidence integrity/cost and a scoped freeze decision, preserving previous reports.
+
+Closure supersedes the original local-only E3 status above: real Actions/check propagation is verified; new protected-merge rejection and actual dual-identity approval remain NOT TESTED. Agent B APPROVE applies to technical candidate 1f92cc4f4f0424f65ed809c3a276a4e3f214a19e. Documentation publication must retain runtime-source identity and obtain its own current-SHA CI record and read-only review under outputs/evidence/closure-publication/.
