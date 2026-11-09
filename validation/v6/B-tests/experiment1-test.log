@@ -1,0 +1,27 @@
+2026-11-08T15:49:44.939183300Z PASS B01 first legal request
+2026-11-08T15:49:44.951674Z PASS B02 repeated exact replay
+2026-11-08T15:49:44.957688500Z PASS B03 greater conflicting amount preserves receipt
+2026-11-08T15:49:44.957688500Z PASS B04 lower conflicting amount preserves receipt
+2026-11-08T15:49:44.960310400Z PASS B05 invalid key variants
+2026-11-08T15:49:44.960852200Z PASS B06 nonpositive amount variants
+2026-11-08T15:49:44.962864700Z PASS B07 positive long endpoints
+2026-11-08T15:49:44.963648100Z PASS B08 adjacent amounts above integer maximum
+2026-11-08T15:49:44.963648100Z PASS B09 long amounts with identical low 32 bits
+2026-11-08T15:49:44.964661700Z PASS B10 failure then successful retry
+2026-11-08T15:49:44.966140400Z PASS B11 repeated provider failures then retry
+2026-11-08T15:49:44.966655600Z PASS B12 failed attempt does not bind amount
+2026-11-08T15:49:44.967674500Z PASS B13 committed replay bypasses provider fault
+2026-11-08T15:49:44.969135300Z PASS B14 conflict remains invalid under provider fault
+2026-11-08T15:49:44.969648300Z PASS B15 validation takes precedence over provider fault
+2026-11-08T15:49:44.970659900Z PASS B16 committed key still rejects invalid amounts
+2026-11-08T15:49:44.972219400Z PASS B17 key case is significant
+2026-11-08T15:49:44.972736500Z PASS B18 nonblank key padding is significant
+2026-11-08T15:49:44.974755600Z PASS B19 distinct String objects have value identity
+2026-11-08T15:49:44.975643200Z PASS B20 hash collisions retain distinct keys
+2026-11-08T15:49:44.977430900Z PASS B21 Unicode normalization is not key identity
+2026-11-08T15:49:44.978951800Z PASS B22 numeric-looking identifiers stay exact
+2026-11-08T15:49:44.980479500Z PASS B23 mixed-key failure conflict replay sequence
+2026-11-08T15:49:44.981642800Z PASS B24 receipt uniqueness is independent of amount
+2026-11-08T15:49:44.983285300Z PASS B25 invalid first attempt does not poison key
+2026-11-08T15:49:44.984832400Z PASS B26 adjacent long-maximum conflict preserves receipt
+2026-11-08T15:49:44.984832400Z CASES=26 FAILURES=0

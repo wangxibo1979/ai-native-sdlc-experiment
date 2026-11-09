@@ -1,0 +1,11 @@
+old-old provider_pid=14244 consumer_exit=0 HTTP=201 BODY={"paymentId":"pay-100"} 
+old-new provider_pid=28976 consumer_exit=0 HTTP=201 BODY={"paymentId":"pay-100","status":"PENDING"} 
+new-new provider_pid=31064 consumer_exit=0 HTTP=201 BODY={"paymentId":"pay-100","status":"PENDING"}
+STATUS=PRESENT 
+new-old-supported-fallback provider_pid=22940 consumer_exit=0 HTTP=201 BODY={"paymentId":"pay-100"}
+STATUS=UNKNOWN (supported v1 fallback) 
+incompatible-request provider_pid=31696 consumer_exit=0 HTTP=400 BODY={"error":"invalid"} 
+incompatible-response provider_pid=28040 consumer_exit=1 HTTP=201 BODY={"receiptId":"pay-100","status":"PENDING"} Exception in thread "main" java.lang.AssertionError: required response field paymentId missing
+	at Consumer.main(Consumer.java:16)
+provider-failure provider_pid=29960 consumer_exit=0 HTTP=503 BODY={"error":"unavailable"} 
+MATRIX_CASES=7 ALL_EXPECTATIONS_MET

@@ -1,0 +1,1 @@
+Both synthetic provider and consumer work items refer to V41-CONTRACT-001, contract.json v1/v2. Provider owner owns schema, order owner owns consumer tests. This is a link record, not a second formal implementation plan.

@@ -1,0 +1,114 @@
+[
+  {
+    "label": "environment",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 1.657,
+    "metadata": "outputs/evidence/environment.json"
+  },
+  {
+    "label": "v2-green-compile",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 1.106,
+    "metadata": "outputs/evidence/v2-green-compile.json"
+  },
+  {
+    "label": "v2-green",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 8.218,
+    "metadata": "outputs/evidence/v2-green.json"
+  },
+  {
+    "label": "v2-old-baseline",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 17.542,
+    "metadata": "outputs/evidence/v2-old-baseline.json"
+  },
+  {
+    "label": "v2-red-compile",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 1.301,
+    "metadata": "outputs/evidence/v2-red-compile.json"
+  },
+  {
+    "label": "v2-red",
+    "actual_exit": 1,
+    "expected_exit": 1,
+    "seconds": 8.305,
+    "metadata": "outputs/evidence/v2-red.json"
+  },
+  {
+    "label": "v2-refactor-compile",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 1.172,
+    "metadata": "outputs/evidence/v2-refactor-compile.json"
+  },
+  {
+    "label": "v2-refactor",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 8.245,
+    "metadata": "outputs/evidence/v2-refactor.json"
+  },
+  {
+    "label": "v3-matrix",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 121.133,
+    "metadata": "outputs/evidence/v3-matrix.json"
+  },
+  {
+    "label": "v4-concurrent-utf8",
+    "actual_exit": 1,
+    "expected_exit": 0,
+    "seconds": 6.474,
+    "metadata": "outputs/evidence/v4-concurrent-utf8.json"
+  },
+  {
+    "label": "v4-concurrent",
+    "actual_exit": 1,
+    "expected_exit": 0,
+    "seconds": 5.118,
+    "metadata": "outputs/evidence/v4-concurrent.json"
+  },
+  {
+    "label": "v4-reconciled",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 17.612,
+    "metadata": "outputs/evidence/v4-reconciled.json"
+  },
+  {
+    "label": "v5-release-model",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 0.122,
+    "metadata": "outputs/evidence/v5-release-model.json"
+  },
+  {
+    "label": "v6-A-mutant-compile",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 1.176,
+    "metadata": "outputs/evidence/v6-A-mutant-compile.json"
+  },
+  {
+    "label": "v6-A-mutant",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 8.225,
+    "metadata": "outputs/evidence/v6-A-mutant.json"
+  },
+  {
+    "label": "v6-A-original-compile",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 1.411,
+    "metadata": "outputs/evidence/v6-A-original-compile.json"
+  }
+]

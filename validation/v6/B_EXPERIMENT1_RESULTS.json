@@ -1,0 +1,100 @@
+{
+  "experiment": "V6 B phase 2 experiment one",
+  "startedUtc": "2026-11-08T15:49:34.5966003+00:00",
+  "endedUtc": "2026-11-08T15:49:45.0731228+00:00",
+  "runnerCommand": "powershell -NoProfile -ExecutionPolicy Bypass -File \"E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B-tests\\Run-Experiment1.ps1\"",
+  "workingDirectory": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6",
+  "javaExecutable": "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath\\java.exe",
+  "javaVersionExit": 0,
+  "javaVersionOutput": "java version \"17.0.8\" 2023-07-18 LTS\r\nJava(TM) SE Runtime Environment (build 17.0.8+9-LTS-211)\r\nJava HotSpot(TM) 64-Bit Server VM (build 17.0.8+9-LTS-211, mixed mode, sharing)\r\n",
+  "javacExecutable": "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath\\javac.exe",
+  "javacVersionExit": 0,
+  "javacVersionOutput": "javac 17.0.8\r\n",
+  "sourceHashesBefore": [
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\CONFIRMED_SPEC.md",
+      "sha256": "EDD5697CBB1F2FB08248906E6699D266A52A84A2D97EDD1E72CBA6E25FED9A3C"
+    },
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B_SPEC_FIRST_REVIEW.md",
+      "sha256": "B942DFB86EC2D875F8EFE62FD33ED81299B0C680C1FFF9F921DC8F2C54E41BD0"
+    },
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\candidate\\PaymentLedger.java",
+      "sha256": "8ADFF48B463E8550403BC7D7794CBED1FB14B1ABE056D8BAF984475027F1D0C0"
+    },
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\A-tests\\PaymentLedgerTest.java",
+      "sha256": "B7E8C89BC725E47E06DC5E7E2E82ECFF137256AF2E94FF5BA2FD1762D61E32AB"
+    },
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B-tests\\IndependentBoundaryTest.java",
+      "sha256": "CA9DCCC57D301DF35E6F8879BB20AE5E8613F500F2865B309653CEF8A7E1BE21"
+    },
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B-tests\\Run-Experiment1.ps1",
+      "sha256": "C1F882C1BE40AB895BCA299BBB046700587F86CA162D02E77384B4CD41966AE2"
+    }
+  ],
+  "sourceHashesAfter": [
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\CONFIRMED_SPEC.md",
+      "sha256": "EDD5697CBB1F2FB08248906E6699D266A52A84A2D97EDD1E72CBA6E25FED9A3C"
+    },
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B_SPEC_FIRST_REVIEW.md",
+      "sha256": "B942DFB86EC2D875F8EFE62FD33ED81299B0C680C1FFF9F921DC8F2C54E41BD0"
+    },
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\candidate\\PaymentLedger.java",
+      "sha256": "8ADFF48B463E8550403BC7D7794CBED1FB14B1ABE056D8BAF984475027F1D0C0"
+    },
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\A-tests\\PaymentLedgerTest.java",
+      "sha256": "B7E8C89BC725E47E06DC5E7E2E82ECFF137256AF2E94FF5BA2FD1762D61E32AB"
+    },
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B-tests\\IndependentBoundaryTest.java",
+      "sha256": "CA9DCCC57D301DF35E6F8879BB20AE5E8613F500F2865B309653CEF8A7E1BE21"
+    },
+    {
+      "path": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B-tests\\Run-Experiment1.ps1",
+      "sha256": "C1F882C1BE40AB895BCA299BBB046700587F86CA162D02E77384B4CD41966AE2"
+    }
+  ],
+  "allObservedSourcesUnchanged": true,
+  "compile": {
+    "executable": "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath\\javac.exe",
+    "arguments": [
+      "--release",
+      "17",
+      "-encoding",
+      "UTF-8",
+      "-d",
+      "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B-tests\\experiment1-classes",
+      "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\candidate\\PaymentLedger.java",
+      "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B-tests\\IndependentBoundaryTest.java"
+    ],
+    "startedUtc": "2026-11-08T15:49:35.2555421+00:00",
+    "endedUtc": "2026-11-08T15:49:36.7329442+00:00",
+    "exit": 0,
+    "output": null,
+    "log": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B-tests\\experiment1-compile.log"
+  },
+  "test": {
+    "executable": "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath\\java.exe",
+    "arguments": [
+      "-cp",
+      "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B-tests\\experiment1-classes",
+      "IndependentBoundaryTest"
+    ],
+    "startedUtc": "2026-11-08T15:49:36.7349687+00:00",
+    "endedUtc": "2026-11-08T15:49:45.0355168+00:00",
+    "exit": 0,
+    "output": "2026-11-08T15:49:44.939183300Z PASS B01 first legal request\r\n2026-11-08T15:49:44.951674Z PASS B02 repeated exact replay\r\n2026-11-08T15:49:44.957688500Z PASS B03 greater conflicting amount preserves receipt\r\n2026-11-08T15:49:44.957688500Z PASS B04 lower conflicting amount preserves receipt\r\n2026-11-08T15:49:44.960310400Z PASS B05 invalid key variants\r\n2026-11-08T15:49:44.960852200Z PASS B06 nonpositive amount variants\r\n2026-11-08T15:49:44.962864700Z PASS B07 positive long endpoints\r\n2026-11-08T15:49:44.963648100Z PASS B08 adjacent amounts above integer maximum\r\n2026-11-08T15:49:44.963648100Z PASS B09 long amounts with identical low 32 bits\r\n2026-11-08T15:49:44.964661700Z PASS B10 failure then successful retry\r\n2026-11-08T15:49:44.966140400Z PASS B11 repeated provider failures then retry\r\n2026-11-08T15:49:44.966655600Z PASS B12 failed attempt does not bind amount\r\n2026-11-08T15:49:44.967674500Z PASS B13 committed replay bypasses provider fault\r\n2026-11-08T15:49:44.969135300Z PASS B14 conflict remains invalid under provider fault\r\n2026-11-08T15:49:44.969648300Z PASS B15 validation takes precedence over provider fault\r\n2026-11-08T15:49:44.970659900Z PASS B16 committed key still rejects invalid amounts\r\n2026-11-08T15:49:44.972219400Z PASS B17 key case is significant\r\n2026-11-08T15:49:44.972736500Z PASS B18 nonblank key padding is significant\r\n2026-11-08T15:49:44.974755600Z PASS B19 distinct String objects have value identity\r\n2026-11-08T15:49:44.975643200Z PASS B20 hash collisions retain distinct keys\r\n2026-11-08T15:49:44.977430900Z PASS B21 Unicode normalization is not key identity\r\n2026-11-08T15:49:44.978951800Z PASS B22 numeric-looking identifiers stay exact\r\n2026-11-08T15:49:44.980479500Z PASS B23 mixed-key failure conflict replay sequence\r\n2026-11-08T15:49:44.981642800Z PASS B24 receipt uniqueness is independent of amount\r\n2026-11-08T15:49:44.983285300Z PASS B25 invalid first attempt does not poison key\r\n2026-11-08T15:49:44.984832400Z PASS B26 adjacent long-maximum conflict preserves receipt\r\n2026-11-08T15:49:44.984832400Z CASES=26 FAILURES=0\r\n",
+    "log": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation\\validation\\v6\\B-tests\\experiment1-test.log"
+  },
+  "aTestsExecuted": false,
+  "candidateModified": false,
+  "cases": "B01-B26 from B_SPEC_FIRST_REVIEW.md"
+}

@@ -1,0 +1,27 @@
+2026-11-09T01:23:45.578538200Z PASS B01 first legal request
+2026-11-09T01:23:45.588691800Z PASS B02 repeated exact replay
+2026-11-09T01:23:45.591689100Z PASS B03 greater conflicting amount preserves receipt
+2026-11-09T01:23:45.592688700Z PASS B04 lower conflicting amount preserves receipt
+2026-11-09T01:23:45.592688700Z PASS B05 invalid key variants
+2026-11-09T01:23:45.593685400Z PASS B06 nonpositive amount variants
+2026-11-09T01:23:45.594691300Z PASS B07 positive long endpoints
+2026-11-09T01:23:45.594691300Z PASS B08 adjacent amounts above integer maximum
+2026-11-09T01:23:45.595685Z PASS B09 long amounts with identical low 32 bits
+2026-11-09T01:23:45.596695Z PASS B10 failure then successful retry
+2026-11-09T01:23:45.597688600Z PASS B11 repeated provider failures then retry
+2026-11-09T01:23:45.598604Z PASS B12 failed attempt does not bind amount
+2026-11-09T01:23:45.599300400Z PASS B13 committed replay bypasses provider fault
+2026-11-09T01:23:45.599300400Z PASS B14 conflict remains invalid under provider fault
+2026-11-09T01:23:45.599300400Z PASS B15 validation takes precedence over provider fault
+2026-11-09T01:23:45.599300400Z PASS B16 committed key still rejects invalid amounts
+2026-11-09T01:23:45.599300400Z PASS B17 key case is significant
+2026-11-09T01:23:45.599300400Z PASS B18 nonblank key padding is significant
+2026-11-09T01:23:45.599300400Z PASS B19 distinct String objects have value identity
+2026-11-09T01:23:45.599300400Z PASS B20 hash collisions retain distinct keys
+2026-11-09T01:23:45.599300400Z PASS B21 Unicode normalization is not key identity
+2026-11-09T01:23:45.599300400Z PASS B22 numeric-looking identifiers stay exact
+2026-11-09T01:23:45.599300400Z PASS B23 mixed-key failure conflict replay sequence
+2026-11-09T01:23:45.599300400Z PASS B24 receipt uniqueness is independent of amount
+2026-11-09T01:23:45.599300400Z PASS B25 invalid first attempt does not poison key
+2026-11-09T01:23:45.599300400Z PASS B26 adjacent long-maximum conflict preserves receipt
+2026-11-09T01:23:45.599300400Z CASES=26 FAILURES=0

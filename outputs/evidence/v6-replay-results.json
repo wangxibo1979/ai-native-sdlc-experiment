@@ -1,0 +1,74 @@
+[
+  {
+    "stage": "original",
+    "test": "PaymentLedgerTest",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 8.264999999999418,
+    "source_sha256": "8adff48b463e8550403bc7d7794cbed1fb14b1abe056d8baf984475027f1d0c0"
+  },
+  {
+    "stage": "original",
+    "test": "IndependentBoundaryTest",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 8.985000000000582,
+    "source_sha256": "8adff48b463e8550403bc7d7794cbed1fb14b1abe056d8baf984475027f1d0c0"
+  },
+  {
+    "stage": "original",
+    "test": "MinimalReplayRepro",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 8.547000000005937,
+    "source_sha256": "8adff48b463e8550403bc7d7794cbed1fb14b1abe056d8baf984475027f1d0c0"
+  },
+  {
+    "stage": "mutant",
+    "test": "PaymentLedgerTest",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 8.312000000005355,
+    "source_sha256": "edadd8fbb86407ecc944ea386069476cb34b134ee9c7de30ac492b7fe1fd128d"
+  },
+  {
+    "stage": "mutant",
+    "test": "IndependentBoundaryTest",
+    "actual_exit": 1,
+    "expected_exit": 1,
+    "seconds": 8.297000000005937,
+    "source_sha256": "edadd8fbb86407ecc944ea386069476cb34b134ee9c7de30ac492b7fe1fd128d"
+  },
+  {
+    "stage": "mutant",
+    "test": "MinimalReplayRepro",
+    "actual_exit": 1,
+    "expected_exit": 1,
+    "seconds": 8.265999999988708,
+    "source_sha256": "edadd8fbb86407ecc944ea386069476cb34b134ee9c7de30ac492b7fe1fd128d"
+  },
+  {
+    "stage": "repaired",
+    "test": "PaymentLedgerTest",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 8.23399999999674,
+    "source_sha256": "1d8121fb86cc3f22eebb7dc75b82610f0d14f06589c765c013ad3d90234c6ed6"
+  },
+  {
+    "stage": "repaired",
+    "test": "IndependentBoundaryTest",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 8.375,
+    "source_sha256": "1d8121fb86cc3f22eebb7dc75b82610f0d14f06589c765c013ad3d90234c6ed6"
+  },
+  {
+    "stage": "repaired",
+    "test": "MinimalReplayRepro",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "seconds": 8.26600000000326,
+    "source_sha256": "1d8121fb86cc3f22eebb7dc75b82610f0d14f06589c765c013ad3d90234c6ed6"
+  }
+]

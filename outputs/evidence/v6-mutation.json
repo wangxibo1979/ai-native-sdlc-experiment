@@ -1,0 +1,7 @@
+{
+  "mutation_id": "M1",
+  "original_sha256": "819d9605deb4460d084d718cfadfbbeba5a2cdbaf118bf7f665344ba124f073b",
+  "candidate_sha256": "edadd8fbb86407ecc944ea386069476cb34b134ee9c7de30ac492b7fe1fd128d",
+  "B_not_told_location_or_content": true,
+  "original_tests_unchanged": true
+}

@@ -1,0 +1,8 @@
+PASS first valid request
+FAIL retry does not reexecute: java.lang.AssertionError: retry changed id
+FAIL conflicting parameters rejected without side effect: java.lang.AssertionError: expected IllegalArgumentException
+PASS invalid input has no side effect
+FAIL failure before commit can be retried: java.lang.AssertionError: recovery duplicated
+CASES=5 FAILURES=3
+Exception in thread "main" java.lang.AssertionError: business behavior failed: 3
+	at PaymentLedgerTest.main(PaymentLedgerTest.java:21)

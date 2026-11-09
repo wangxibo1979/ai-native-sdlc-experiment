@@ -1,0 +1,6 @@
+2026-11-08T14:09:40.2972128Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +5f566daed7f15e3d99a0ea6fec2df78d52271a77:refs/remotes/pull/1/merge
+2026-11-08T14:09:40.6565838Z  * [new ref]         5f566daed7f15e3d99a0ea6fec2df78d52271a77 -> pull/1/merge
+2026-11-08T14:09:40.6695788Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/1/merge
+2026-11-08T14:09:40.6755067Z Note: switching to 'refs/remotes/pull/1/merge'.
+2026-11-08T14:09:40.6783407Z HEAD is now at 5f566da Merge 232d4c9763d9251db25e2af432b113637dc42c29 into 36c819115d3fdc8c281f710067311fe9232e20bf
+2026-11-08T14:09:40.6837868Z 5f566daed7f15e3d99a0ea6fec2df78d52271a77

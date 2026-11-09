@@ -1,0 +1,280 @@
+{
+  "source_sha": "232d4c9763d9251db25e2af432b113637dc42c29",
+  "controls": [
+    {
+      "name": "zero-tests",
+      "branch": "validation/v41-zero-tests",
+      "sha": "ca83603b81a8062bcc2ac66d7828147fed1815a3",
+      "pr": 6,
+      "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/pull/6",
+      "runs": [
+        {
+          "id": 42495541561,
+          "status": "completed",
+          "conclusion": "success",
+          "event": "pull_request",
+          "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495541561",
+          "head_sha": "ca83603b81a8062bcc2ac66d7828147fed1815a3"
+        },
+        {
+          "id": 42495529869,
+          "status": "completed",
+          "conclusion": "success",
+          "event": "push",
+          "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495529869",
+          "head_sha": "ca83603b81a8062bcc2ac66d7828147fed1815a3"
+        }
+      ],
+      "jobs": [
+        {
+          "id": 128776965962,
+          "name": "test",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42495541561,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run python3 - <<'PY'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            }
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "name": "test",
+          "conclusion": "success",
+          "app_id": 15368,
+          "head_sha": "ca83603b81a8062bcc2ac66d7828147fed1815a3",
+          "details_url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495541561/job/128776965962"
+        },
+        {
+          "name": "test",
+          "conclusion": "success",
+          "app_id": 15368,
+          "head_sha": "ca83603b81a8062bcc2ac66d7828147fed1815a3",
+          "details_url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495529869/job/128776931801"
+        }
+      ]
+    },
+    {
+      "name": "skip-step",
+      "branch": "validation/v41-skip-step",
+      "sha": "0e0046ddbc65c6e45fea21db563d4587bfe08356",
+      "pr": 7,
+      "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/pull/7",
+      "runs": [
+        {
+          "id": 42495577691,
+          "status": "completed",
+          "conclusion": "success",
+          "event": "pull_request",
+          "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495577691",
+          "head_sha": "0e0046ddbc65c6e45fea21db563d4587bfe08356"
+        },
+        {
+          "id": 42495563944,
+          "status": "completed",
+          "conclusion": "success",
+          "event": "push",
+          "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495563944",
+          "head_sha": "0e0046ddbc65c6e45fea21db563d4587bfe08356"
+        }
+      ],
+      "jobs": [
+        {
+          "id": 128777066031,
+          "name": "test",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42495577691,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Business validation deliberately skipped",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 2
+            },
+            {
+              "name": "Run echo 'NO BUSINESS TESTS EXECUTED'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            }
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "name": "test",
+          "conclusion": "success",
+          "app_id": 15368,
+          "head_sha": "0e0046ddbc65c6e45fea21db563d4587bfe08356",
+          "details_url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495577691/job/128777066031"
+        },
+        {
+          "name": "test",
+          "conclusion": "success",
+          "app_id": 15368,
+          "head_sha": "0e0046ddbc65c6e45fea21db563d4587bfe08356",
+          "details_url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495563944/job/128777027120"
+        }
+      ]
+    },
+    {
+      "name": "skip-job",
+      "branch": "validation/v41-skip-job",
+      "sha": "8af24c7e6ed14233d6d77570251d3dd7a4e80b7e",
+      "pr": 8,
+      "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/pull/8",
+      "runs": [
+        {
+          "id": 42495607144,
+          "status": "completed",
+          "conclusion": "skipped",
+          "event": "pull_request",
+          "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495607144",
+          "head_sha": "8af24c7e6ed14233d6d77570251d3dd7a4e80b7e"
+        },
+        {
+          "id": 42495594866,
+          "status": "completed",
+          "conclusion": "skipped",
+          "event": "push",
+          "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495594866",
+          "head_sha": "8af24c7e6ed14233d6d77570251d3dd7a4e80b7e"
+        }
+      ],
+      "jobs": [
+        {
+          "id": 128777160325,
+          "name": "test",
+          "status": "completed",
+          "conclusion": "skipped",
+          "run_id": 42495607144,
+          "logs_url": null,
+          "steps": null
+        }
+      ],
+      "checks": [
+        {
+          "name": "test",
+          "conclusion": "skipped",
+          "app_id": 15368,
+          "head_sha": "8af24c7e6ed14233d6d77570251d3dd7a4e80b7e",
+          "details_url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495594866/job/128777162857"
+        },
+        {
+          "name": "test",
+          "conclusion": "skipped",
+          "app_id": 15368,
+          "head_sha": "8af24c7e6ed14233d6d77570251d3dd7a4e80b7e",
+          "details_url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495607144/job/128777160325"
+        }
+      ]
+    },
+    {
+      "name": "name-mismatch",
+      "branch": "validation/v41-name-mismatch",
+      "sha": "8748f89a70adabbf86c25c455fd1c77bf6fda0e6",
+      "pr": 9,
+      "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/pull/9",
+      "runs": [
+        {
+          "id": 42495633178,
+          "status": "completed",
+          "conclusion": "success",
+          "event": "pull_request",
+          "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495633178",
+          "head_sha": "8748f89a70adabbf86c25c455fd1c77bf6fda0e6"
+        },
+        {
+          "id": 42495622715,
+          "status": "completed",
+          "conclusion": "success",
+          "event": "push",
+          "url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495622715",
+          "head_sha": "8748f89a70adabbf86c25c455fd1c77bf6fda0e6"
+        }
+      ],
+      "jobs": [
+        {
+          "id": 128777240544,
+          "name": "renamed_check",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42495633178,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run echo 'Different check name, not test'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            }
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "name": "renamed_check",
+          "conclusion": "success",
+          "app_id": 15368,
+          "head_sha": "8748f89a70adabbf86c25c455fd1c77bf6fda0e6",
+          "details_url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495633178/job/128777240544"
+        },
+        {
+          "name": "renamed_check",
+          "conclusion": "success",
+          "app_id": 15368,
+          "head_sha": "8748f89a70adabbf86c25c455fd1c77bf6fda0e6",
+          "details_url": "https://github.com/wangxibo1979/ai-native-sdlc-experiment/actions/runs/42495622715/job/128777207405"
+        }
+      ]
+    }
+  ],
+  "real_second_reviewer": "NOT PROVIDED",
+  "checked_out_merge_sha": "5f566daed7f15e3d99a0ea6fec2df78d52271a77",
+  "protected_merge_attempts_this_task": 0,
+  "protection_changes_this_task": 0
+}

@@ -1,0 +1,5 @@
+INPUT_1 key=large amount=2147483648 failBeforeCommit=false
+OBSERVED_1 receipt=336aa3ad-2dcc-495d-9999-a90d7e9a8ea4 executionDelta=1
+INPUT_2 key=large amount=2147483648 failBeforeCommit=false
+EXPECTED_2 receipt=336aa3ad-2dcc-495d-9999-a90d7e9a8ea4 executionDelta=1 no exception
+OBSERVED_2 receipt=336aa3ad-2dcc-495d-9999-a90d7e9a8ea4 executionDelta=1

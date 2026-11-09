@@ -1,0 +1,13 @@
+{
+  "label": "v3-matrix",
+  "command": [
+    "python",
+    "validation/v3/run_matrix.py"
+  ],
+  "cwd": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation",
+  "start": "2026-11-08T15:29:44.342915+00:00",
+  "end": "2026-11-08T15:31:45.476238+00:00",
+  "actual_exit": 0,
+  "expected_exit": 0,
+  "log": "v3-matrix.log"
+}

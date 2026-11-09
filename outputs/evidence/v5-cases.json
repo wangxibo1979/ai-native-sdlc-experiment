@@ -1,0 +1,70 @@
+{
+  "inputs": [
+    {
+      "case": "A",
+      "synthetic": true,
+      "technical_pass": true,
+      "business_pass": false,
+      "release_authorized": false,
+      "actually_deployed": false,
+      "post_release_verified": false,
+      "rollback_ready": false,
+      "evidence": {
+        "business_acceptance": "MISSING",
+        "technical_evidence": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "interface_compatibility": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "database_recovery": "N/A for in-memory fixture; real migration and restore NOT TESTED",
+        "message_consistency": "N/A for direct HTTP fixture; real message retries and consistency NOT TESTED",
+        "security": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "deployment_order": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "rollback": "MISSING",
+        "post_release_checks": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "authorized_person": "MISSING"
+      }
+    },
+    {
+      "case": "B",
+      "synthetic": true,
+      "technical_pass": true,
+      "business_pass": true,
+      "release_authorized": true,
+      "actually_deployed": false,
+      "post_release_verified": false,
+      "rollback_ready": true,
+      "evidence": {
+        "business_acceptance": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "technical_evidence": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "interface_compatibility": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "database_recovery": "N/A for in-memory fixture; real migration and restore NOT TESTED",
+        "message_consistency": "N/A for direct HTTP fixture; real message retries and consistency NOT TESTED",
+        "security": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "deployment_order": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "rollback": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "post_release_checks": "synthetic documented evidence; must be replaced by real approved project evidence",
+        "authorized_person": "synthetic documented evidence; must be replaced by real approved project evidence"
+      }
+    }
+  ],
+  "results": [
+    {
+      "case": "A",
+      "technical": "PASS",
+      "business": "NOT APPROVED",
+      "authorization": "NOT AUTHORIZED",
+      "execution": "NOT DEPLOYED",
+      "post_release": "NOT VERIFIED",
+      "eligible_for_simulated_release_flow": false,
+      "real_production_release_success": false
+    },
+    {
+      "case": "B",
+      "technical": "PASS",
+      "business": "SIMULATED_PASS",
+      "authorization": "SIMULATED_APPROVED",
+      "execution": "NOT DEPLOYED",
+      "post_release": "NOT VERIFIED",
+      "eligible_for_simulated_release_flow": true,
+      "real_production_release_success": false
+    }
+  ]
+}

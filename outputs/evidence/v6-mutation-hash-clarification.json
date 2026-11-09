@@ -1,0 +1,9 @@
+{
+  "mutation_id": "M1",
+  "candidate_sha256": "edadd8fbb86407ecc944ea386069476cb34b134ee9c7de30ac492b7fe1fd128d",
+  "B_not_told_location_or_content": true,
+  "original_tests_unchanged": true,
+  "original_text_normalized_sha256": "819d9605deb4460d084d718cfadfbbeba5a2cdbaf118bf7f665344ba124f073b",
+  "original_file_bytes_sha256": "8adff48b463e8550403bc7d7794cbed1fb14b1abe056d8baf984475027f1d0c0",
+  "note": "Original text read normalized newline before hashing; original_file_bytes_sha256 is the authoritative preserved-original file hash."
+}

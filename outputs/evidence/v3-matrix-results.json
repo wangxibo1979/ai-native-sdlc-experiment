@@ -1,0 +1,72 @@
+[
+  {
+    "case": "old-old",
+    "consumer_version": 1,
+    "provider_version": 1,
+    "provider_pid": 14244,
+    "consumer_exit": 0,
+    "expected_consumer_exit": 0,
+    "stdout": "HTTP=201 BODY={\"paymentId\":\"pay-100\"}\n",
+    "stderr": ""
+  },
+  {
+    "case": "old-new",
+    "consumer_version": 1,
+    "provider_version": 2,
+    "provider_pid": 28976,
+    "consumer_exit": 0,
+    "expected_consumer_exit": 0,
+    "stdout": "HTTP=201 BODY={\"paymentId\":\"pay-100\",\"status\":\"PENDING\"}\n",
+    "stderr": ""
+  },
+  {
+    "case": "new-new",
+    "consumer_version": 2,
+    "provider_version": 2,
+    "provider_pid": 31064,
+    "consumer_exit": 0,
+    "expected_consumer_exit": 0,
+    "stdout": "HTTP=201 BODY={\"paymentId\":\"pay-100\",\"status\":\"PENDING\"}\nSTATUS=PRESENT\n",
+    "stderr": ""
+  },
+  {
+    "case": "new-old-supported-fallback",
+    "consumer_version": 2,
+    "provider_version": 1,
+    "provider_pid": 22940,
+    "consumer_exit": 0,
+    "expected_consumer_exit": 0,
+    "stdout": "HTTP=201 BODY={\"paymentId\":\"pay-100\"}\nSTATUS=UNKNOWN (supported v1 fallback)\n",
+    "stderr": ""
+  },
+  {
+    "case": "incompatible-request",
+    "consumer_version": 2,
+    "provider_version": 2,
+    "provider_pid": 31696,
+    "consumer_exit": 0,
+    "expected_consumer_exit": 0,
+    "stdout": "HTTP=400 BODY={\"error\":\"invalid\"}\n",
+    "stderr": ""
+  },
+  {
+    "case": "incompatible-response",
+    "consumer_version": 1,
+    "provider_version": 2,
+    "provider_pid": 28040,
+    "consumer_exit": 1,
+    "expected_consumer_exit": 1,
+    "stdout": "HTTP=201 BODY={\"receiptId\":\"pay-100\",\"status\":\"PENDING\"}\n",
+    "stderr": "Exception in thread \"main\" java.lang.AssertionError: required response field paymentId missing\n\tat Consumer.main(Consumer.java:16)\n"
+  },
+  {
+    "case": "provider-failure",
+    "consumer_version": 2,
+    "provider_version": 2,
+    "provider_pid": 29960,
+    "consumer_exit": 0,
+    "expected_consumer_exit": 0,
+    "stdout": "HTTP=503 BODY={\"error\":\"unavailable\"}\n",
+    "stderr": ""
+  }
+]

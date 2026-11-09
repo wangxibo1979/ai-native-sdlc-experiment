@@ -1,0 +1,4 @@
+PASS baseline: create payment and reject zero
+PASS identical retry and conflicting amount
+PASS consumer contract field check
+PASS 2 test classes and contract check

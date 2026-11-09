@@ -1,0 +1,10 @@
+INPUT_1 key=large amount=2147483648 failBeforeCommit=false
+OBSERVED_1 receipt=7e083099-21a2-4f5d-b009-639ad2763fe1 executionDelta=1
+INPUT_2 key=large amount=2147483648 failBeforeCommit=false
+EXPECTED_2 receipt=7e083099-21a2-4f5d-b009-639ad2763fe1 executionDelta=1 no exception
+OBSERVED_2 exception=java.lang.IllegalArgumentException: conflicting parameters executionDelta=1
+Exception in thread "main" java.lang.AssertionError: Legal identical replay must return original receipt
+	at MinimalReplayRepro.main(MinimalReplayRepro.java:19)
+Caused by: java.lang.IllegalArgumentException: conflicting parameters
+	at PaymentLedger.submit(PaymentLedger.java:12)
+	at MinimalReplayRepro.main(MinimalReplayRepro.java:12)

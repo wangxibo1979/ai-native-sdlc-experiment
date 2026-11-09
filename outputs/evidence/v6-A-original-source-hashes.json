@@ -1,0 +1,7 @@
+{
+  "original_candidate_sha256": "8adff48b463e8550403bc7d7794cbed1fb14b1abe056d8baf984475027f1d0c0",
+  "A_original_tests_sha256": "b7e8c89bc725e47e06dc5e7e2e82ecff137256af2e94ff5ba2fd1762d61e32ab",
+  "developer": "Agent A = root session implementing V2",
+  "reviewer": "separate fork_turns=none session /root/v6_independent_reviewer",
+  "initial_tests": "v6-A-original: 5 cases passed; exit 0"
+}

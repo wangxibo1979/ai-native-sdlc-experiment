@@ -1,0 +1,44 @@
+{
+  "change": "V41-CONTRACT-001",
+  "owner": "synthetic provider owner (real assignment required in pilot)",
+  "consumers": [
+    "order-v1",
+    "order-v2"
+  ],
+  "v1": {
+    "request_required": [
+      "orderId",
+      "amountFen"
+    ],
+    "response_required": [
+      "paymentId"
+    ],
+    "success": 201,
+    "failure": 503
+  },
+  "v2": {
+    "request_required": [
+      "orderId",
+      "amountFen"
+    ],
+    "request_optional": [
+      "channel"
+    ],
+    "response_required": [
+      "paymentId"
+    ],
+    "response_optional": [
+      "status"
+    ],
+    "success": 201,
+    "failure": 503
+  },
+  "window": "v2 consumer supports missing status as UNKNOWN on v1; both consumers must retain amountFen and paymentId during migration",
+  "upgrade_order": [
+    "deploy compatible provider v2",
+    "verify old consumer compatibility",
+    "deploy consumer v2",
+    "observe rollback window",
+    "remove v1 support only in separately approved breaking change"
+  ]
+}

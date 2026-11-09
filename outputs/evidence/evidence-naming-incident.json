@@ -1,0 +1,6 @@
+{
+  "incident": "v6-A-original.json recorder metadata was overwritten by controller source-hash metadata using the same filename",
+  "retained": "v6-A-original.log and original source snapshot",
+  "not_reconstructed": "original run start/end times are not reconstructed",
+  "resolution": "preserve current file as source-hash record and execute original snapshot again under unique original-recheck labels"
+}
