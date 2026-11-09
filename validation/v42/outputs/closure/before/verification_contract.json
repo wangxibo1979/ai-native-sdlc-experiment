@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "scope": "Local Java17 synthetic ledger only; trusted reviewed map/entry/contract; no remote CI claim",
+  "upstream_commit": "bd68e08dea228330ce4c72d57c1aa93163e1b0a0",
+  "target_file": "outputs/atomic_targets_confirmed.json",
+  "reviewed_targets_sha256": "199fa96c34f8cb62901946e09efd42e80a225fd64110c3474e29287e167c27ba",
+  "source_paths": [
+    "verify.py",
+    "verification_contract.json",
+    "inputs/CONFIRMED_SPEC.md",
+    "inputs/SPEC_ADDENDUM.md",
+    "outputs/atomic_targets_confirmed.json",
+    "outputs/test_map_full.json",
+    "outputs/test_map_legacy.json",
+    "outputs/map_links.json",
+    "checks/PaymentLedger.java",
+    "checks/PaymentLedgerTest.java",
+    "checks/IndependentBoundaryTest.java",
+    "fixtures/broken/PaymentLedger.java",
+    "fixtures/empty-tests/README.md"
+  ],
+  "reviewed_source_sha256": {
+    "inputs/CONFIRMED_SPEC.md": "edd5697cbb1f2fb08248906e6699d266a52a84a2d97edd1e72cba6e25fed9a3c",
+    "inputs/SPEC_ADDENDUM.md": "15a0cd6f5ad7f785541d3687cb1143638f7da5978377269773da5400a4f1c87a",
+    "outputs/atomic_targets_confirmed.json": "199fa96c34f8cb62901946e09efd42e80a225fd64110c3474e29287e167c27ba",
+    "outputs/test_map_full.json": "7a5c452282ea6dd9bb834a253ecef3c6319d909f945877e127ce8e18c1da37f0",
+    "outputs/test_map_legacy.json": "5a8645ee9fc427699d8bfe6a6e031d0102402c953fd556f09d69a0b9137d8f2e",
+    "outputs/map_links.json": "6201a3d7b6c8039529fdcad3984c174512048b5829903529bf0b1f7619b06065",
+    "checks/PaymentLedger.java": "1d8121fb86cc3f22eebb7dc75b82610f0d14f06589c765c013ad3d90234c6ed6",
+    "checks/PaymentLedgerTest.java": "b7e8c89bc725e47e06dc5e7e2e82ecff137256af2e94ff5ba2fd1762d61e32ab",
+    "checks/IndependentBoundaryTest.java": "ca9dccc57d301df35e6f8879bb20ae5e8613f500f2865b309653cef8a7e1be21",
+    "fixtures/broken/PaymentLedger.java": "edadd8fbb86407ecc944ea386069476cb34b134ee9c7de30ac492b7fe1fd128d",
+    "fixtures/empty-tests/README.md": "6da9a8d8016a0c0a10473e1a55d971cdbf637ddd4e5465e8eb2cd5e79d5c4712"
+  },
+  "profiles": {
+    "full": [
+      "A",
+      "B"
+    ],
+    "legacy": [
+      "A"
+    ]
+  },
+  "minimum_cases": {
+    "A": 5,
+    "B": 26
+  },
+  "check_order": [
+    "COMPILE",
+    "A",
+    "B"
+  ],
+  "stop_on": [
+    "missing required file",
+    "compile failure",
+    "environment failure"
+  ],
+  "continue_diagnostics_on": [
+    "A or B business test failure"
+  ],
+  "skip_policy": "Required SKIPPED or NOT RUN never qualifies",
+  "zero_policy": "Exit 0 with zero/missing/below-minimum test count is FAIL",
+  "map_policy": "MAP READY is schema/design readiness only; blocking GAP/PARTIAL/UNCONFIRMED prevents QUALIFIED",
+  "version_policy": "Current committed source only; actual commit and byte hashes recorded; stale reused evidence BLOCKED",
+  "qualification": "All selected checks PASS, counts met, map ready and no blockers, clean source and reviewed hashes match",
+  "exit_codes": {
+    "QUALIFIED": 0,
+    "NOT QUALIFIED": 1,
+    "BLOCKED": 2
+  },
+  "negative_hooks": "Controlled local experiments only; legacy profile is diagnostic, never full acceptance"
+}

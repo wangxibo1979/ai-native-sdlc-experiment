@@ -1,0 +1,603 @@
+{
+  "legacy": {
+    "T01": [],
+    "T02": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "15",
+        "assertion": "require(submit(k1,100,false)!=null); only amount 100, no positive long endpoints or wide values."
+      }
+    ],
+    "T03": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "15",
+        "assertion": "require(executions()==1) after initial submit; only amount 100, only initial zero-baseline instance."
+      }
+    ],
+    "T04": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "16",
+        "assertion": "id.equals(submit(k1,100,false)); one replay only."
+      },
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "Recovery id.equals(submit(k,100,false)); ordinary amount only."
+      }
+    ],
+    "T05": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "16",
+        "assertion": "require(executions()==1) after one replay; no repeated or long-boundary sequence."
+      },
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "After failure/retry/replay require(executions()==1)."
+      }
+    ],
+    "T06": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "17",
+        "assertion": "rejects(IllegalArgumentException.class, submit(k1,101,false)) after amount 100; no nonpositive, width boundary, or fault=true conflict."
+      }
+    ],
+    "T07": [],
+    "T08": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "17",
+        "assertion": "require(executions()==1) after 100->101 conflict; missing nonpositive/fault/boundary conflicts."
+      }
+    ],
+    "T09": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "18",
+        "assertion": "rejects IAE for ASCII space and null, fault=false. STATIC predicate PaymentLedger.java:9 is key==null || key.isBlank(); addendum L3 establishes its oracle, but A lacks empty/fault=true input assertions."
+      }
+    ],
+    "T10": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "18",
+        "assertion": "After invalid space/null/zero requests require(executions()==0). STATIC PaymentLedger.java:9 uses exact confirmed blank predicate; A lacks empty/fault=true rejection sequence."
+      }
+    ],
+    "T11": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "18",
+        "assertion": "rejects IAE for amount 0 only, fault=false; no negative, MIN_VALUE, fault=true, or committed-key invalid amount."
+      }
+    ],
+    "T12": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "18",
+        "assertion": "require(executions()==0) after amount 0 and invalid keys; missing negative and fault=true amount cases."
+      }
+    ],
+    "T13": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "rejects ISE for one new legal fault=true request; repeated still-uncommitted attempts absent."
+      }
+    ],
+    "T14": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "require(executions()==0) immediately after one provider fault; repeated failure sequence absent."
+      }
+    ],
+    "T15": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "INDIRECT: failure count 0, later same-key retry/replay total count 1; no receipt query. STATIC proof PaymentLedger.java:6,9-18: private empty map; only receipt insertion at 18; new-request fault throws at 15 before count/receipt creation/insertion, no catch/finally mutation. COMBINED proof is not direct runtime receipt observation."
+      }
+    ],
+    "T16": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "var id=submit(k,100,false) following ISE; immediate id.equals(submit(...)) fails if retry id is null (implicit non-null assertion)."
+      }
+    ],
+    "T17": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "Final executions()==1 after successful retry AND another replay; no count assertion immediately after successful retry, so deferred execution on replay could escape this test."
+      }
+    ],
+    "T18": [],
+    "T19": [],
+    "T20": []
+  },
+  "full": {
+    "T01": [
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "170-185",
+        "assertion": "Case/padding distinctKeys calls and distinct-instance equality fixture; L176 asserts objects differ but String content equals; L178 calls replay."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "228-237",
+        "assertion": "distinctKeys: commit each key, check(receipts.add(receipt)) at 234, replay same key at 235. Replay equality assertion at 43 and zero delta at 44. Covers case, padding, collision, normalization, numeric text."
+      }
+    ],
+    "T02": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "15",
+        "assertion": "require(submit(k1,100,false)!=null); only amount 100, no positive long endpoints or wide values."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "99-117",
+        "assertion": "commit calls for 1, Long.MAX_VALUE, 2147483648L and 1; helper L33-38 checks receipt!=null at 36; boundary conflicts followed by original replay."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "218-222",
+        "assertion": "commit Long.MAX_VALUE via helper L33-38; adjacent max conflict then replay."
+      }
+    ],
+    "T03": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "15",
+        "assertion": "require(executions()==1) after initial submit; only amount 100, only initial zero-baseline instance."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "33-38",
+        "assertion": "commit helper records current count at 34 and asserts relative delta 1 at 37, immediately after submit."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "99-117",
+        "assertion": "Positive endpoints and 2147483648L call commit; each helper call asserts delta 1."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "218-222",
+        "assertion": "Long.MAX_VALUE commit checks immediate delta 1."
+      }
+    ],
+    "T04": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "16",
+        "assertion": "id.equals(submit(k1,100,false)); one replay only."
+      },
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "Recovery id.equals(submit(k,100,false)); ordinary amount only."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "70-75",
+        "assertion": "50 replays of same key/100 call helper L41-45: Objects.equals(receipt,submit(...)) at 43."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "99-117",
+        "assertion": "Same receipt equality asserted on 1/MAX/wide long replay by helper L43."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "119-131",
+        "assertion": "Successful retry followed by replay equality, including 20 failed attempts before success."
+      }
+    ],
+    "T05": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "16",
+        "assertion": "require(executions()==1) after one replay; no repeated or long-boundary sequence."
+      },
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "After failure/retry/replay require(executions()==1)."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "41-45",
+        "assertion": "replay helper captures baseline then delta(...,0) immediately at 44."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "70-75",
+        "assertion": "50 replays each assert zero delta; total original-baseline delta 1."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "99-117",
+        "assertion": "Boundary replay calls assert zero delta."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "119-131",
+        "assertion": "Recovery replay zero delta; repeated-failure sequence total delta 1."
+      }
+    ],
+    "T06": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "17",
+        "assertion": "rejects(IllegalArgumentException.class, submit(k1,101,false)) after amount 100; no nonpositive, width boundary, or fault=true conflict."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "77-87",
+        "assertion": "100->101 and 100->99 use rejected IAE helper L47-51."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "107-117",
+        "assertion": "2147483648->2147483649 and 1->4294967297 reject IAE, exposing narrowing/width errors."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "146-150",
+        "assertion": "100->101 conflict with fault=true rejects IAE."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "160-168",
+        "assertion": "Committed key rejects 0 and -1 with both fault settings."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "218-222",
+        "assertion": "MAX->MAX-1 rejects IAE."
+      }
+    ],
+    "T07": [
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "77-87",
+        "assertion": "Each greater/lower rejected conflict followed by replay original receipt; equality asserted L43."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "107-117",
+        "assertion": "Wide and same-low-32-bit conflicts followed by original-receipt replay."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "146-150",
+        "assertion": "Fault-enabled conflict followed by original-receipt replay."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "160-168",
+        "assertion": "Committed 0/-1 rejection in both fault settings followed by original receipt replay."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "218-222",
+        "assertion": "MAX->MAX-1 conflict followed by MAX original receipt replay."
+      }
+    ],
+    "T08": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "17",
+        "assertion": "require(executions()==1) after 100->101 conflict; missing nonpositive/fault/boundary conflicts."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "47-51",
+        "assertion": "rejected helper captures baseline and asserts delta 0 after expected exception."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "77-87",
+        "assertion": "Greater/lower conflicts invoke rejected helper."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "107-117",
+        "assertion": "Wide/low-32-bit conflict invocations check zero delta."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "146-168",
+        "assertion": "Fault-enabled and nonpositive committed-key conflicts invoke rejected helper."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "218-222",
+        "assertion": "MAX-adjacent conflict invokes rejected helper."
+      }
+    ],
+    "T09": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "18",
+        "assertion": "rejects IAE for ASCII space and null, fault=false. STATIC predicate PaymentLedger.java:9 is key==null || key.isBlank(); addendum L3 establishes its oracle, but A lacks empty/fault=true input assertions."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "89-92",
+        "assertion": "null, empty, space, tab/CR/LF invoke rejected IAE helper at L50; STATIC PaymentLedger.java:9 exactly uses key==null || key.isBlank(), matching approved addendum L3, ahead of provider fault L15."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "152-158",
+        "assertion": "Same invalid keys with fault=true reject IAE; dynamic exception oracle L23-30."
+      }
+    ],
+    "T10": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "18",
+        "assertion": "After invalid space/null/zero requests require(executions()==0). STATIC PaymentLedger.java:9 uses exact confirmed blank predicate; A lacks empty/fault=true rejection sequence."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "47-51",
+        "assertion": "Each rejected invocation asserts relative executions delta 0 at L51. STATIC PaymentLedger.java:9 confirmed blank predicate throws before count L16."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "89-92",
+        "assertion": "null/empty/space/tab-CR-LF fault=false all use per-invocation zero-delta rejection helper."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "152-158",
+        "assertion": "Invalid keys fault=true use the same per-invocation zero-delta rejection helper."
+      }
+    ],
+    "T11": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "18",
+        "assertion": "rejects IAE for amount 0 only, fault=false; no negative, MIN_VALUE, fault=true, or committed-key invalid amount."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "94-97",
+        "assertion": "0,-1,MIN_VALUE fault=false rejected IAE via helper L50."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "152-168",
+        "assertion": "0,-1,MIN_VALUE fault=true; committed keys 0,-1 with both flags reject IAE."
+      }
+    ],
+    "T12": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "18",
+        "assertion": "require(executions()==0) after amount 0 and invalid keys; missing negative and fault=true amount cases."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "47-51",
+        "assertion": "rejected helper asserts relative zero operation after exception."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "94-97",
+        "assertion": "0,-1,MIN_VALUE fault=false rejection helper checks zero delta."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "152-168",
+        "assertion": "Nonpositive fault=true and committed-key invalid requests each check zero delta."
+      }
+    ],
+    "T13": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "rejects ISE for one new legal fault=true request; repeated still-uncommitted attempts absent."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "119-131",
+        "assertion": "ISE rejection on new key; 20 same-key still-uncommitted fault=true attempts each use expected ISE oracle L23-30."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "186-193",
+        "assertion": "New B fault on ledger with committed A rejects ISE."
+      }
+    ],
+    "T14": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "require(executions()==0) immediately after one provider fault; repeated failure sequence absent."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "119-131",
+        "assertion": "rejected helper at each of 20 provider failures checks immediate delta 0, L49-51."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "186-193",
+        "assertion": "New-key fault amidst committed other key preserves total count baseline+1 at 190."
+      }
+    ],
+    "T15": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "INDIRECT: failure count 0, later same-key retry/replay total count 1; no receipt query. STATIC proof PaymentLedger.java:6,9-18: private empty map; only receipt insertion at 18; new-request fault throws at 15 before count/receipt creation/insertion, no catch/finally mutation. COMBINED proof is not direct runtime receipt observation."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "119-139",
+        "assertion": "INDIRECT only: same-key recovery after one/20 failures and different-amount retry after failure; each rejected helper zero count then commit delta 1. STATIC PaymentLedger.java:6,9-18 proves legal new fault path exits at 15 before sole map.put at 18. No public committed-receipt accessor exists; tests do not directly query receipt absence."
+      }
+    ],
+    "T16": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "var id=submit(k,100,false) following ISE; immediate id.equals(submit(...)) fails if retry id is null (implicit non-null assertion)."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "119-131",
+        "assertion": "commit after one/20 faults explicitly asserts receipt!=null at helper L36."
+      }
+    ],
+    "T17": [
+      {
+        "check": "A",
+        "file": "checks/PaymentLedgerTest.java",
+        "lines": "19",
+        "assertion": "Final executions()==1 after successful retry AND another replay; no count assertion immediately after successful retry, so deferred execution on replay could escape this test."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "119-131",
+        "assertion": "Each failed call asserts delta 0; successful retry commit immediately asserts delta 1 at L37; sequence baseline total 1 at L131."
+      }
+    ],
+    "T18": [
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "141-144",
+        "assertion": "After commit, 10 fault=true identical replays assert original receipt equality at helper L43."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "198-208",
+        "assertion": "Fault-enabled replay of previously committed keys remains stable while other keys commit."
+      }
+    ],
+    "T19": [
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "141-144",
+        "assertion": "10 fault=true identical replays each assert zero delta at helper L44."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "186-196",
+        "assertion": "Fault-enabled committed A replay preserves mixed-ledger total count baseline+1 at L191."
+      }
+    ],
+    "T20": [
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "228-237",
+        "assertion": "distinctKeys helper checks each new receipt successfully adds to a Set at L234."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "198-210",
+        "assertion": "Two same-amount and one different-amount commits: same(3,receipts.size()) at L209 asserts pairwise distinct receipts."
+      },
+      {
+        "check": "B",
+        "file": "checks/IndependentBoundaryTest.java",
+        "lines": "186-194",
+        "assertion": "Different amounts A10/B20: check(!a.equals(b)) at L194."
+      }
+    ]
+  }
+}

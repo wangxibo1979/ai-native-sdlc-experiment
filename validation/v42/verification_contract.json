@@ -1,0 +1,107 @@
+{
+  "version": 2,
+  "scope": "Confirmed Java17 synthetic ledger; identical local and Actions entry; trusted reviewed inputs, not production approval",
+  "upstream_commit": "bd68e08dea228330ce4c72d57c1aa93163e1b0a0",
+  "target_file": "outputs/atomic_targets_confirmed.json",
+  "reviewed_targets_sha256": "199fa96c34f8cb62901946e09efd42e80a225fd64110c3474e29287e167c27ba",
+  "source_paths": [
+    "verify.py",
+    "verification_contract.json",
+    "inputs/CONFIRMED_SPEC.md",
+    "inputs/SPEC_ADDENDUM.md",
+    "outputs/atomic_targets_confirmed.json",
+    "outputs/test_map_full.json",
+    "outputs/test_map_legacy.json",
+    "outputs/map_links.json",
+    "checks/PaymentLedger.java",
+    "checks/PaymentLedgerTest.java",
+    "checks/IndependentBoundaryTest.java",
+    "fixtures/broken/PaymentLedger.java",
+    "fixtures/empty-tests/README.md",
+    "test_verification_policy.py",
+    "outputs/closure/INDEPENDENT_ACCEPTANCE_POLICY.md",
+    "ci_case.txt",
+    "ci/verify.yml"
+  ],
+  "reviewed_source_sha256": {
+    "inputs/CONFIRMED_SPEC.md": "edd5697cbb1f2fb08248906e6699d266a52a84a2d97edd1e72cba6e25fed9a3c",
+    "inputs/SPEC_ADDENDUM.md": "15a0cd6f5ad7f785541d3687cb1143638f7da5978377269773da5400a4f1c87a",
+    "outputs/atomic_targets_confirmed.json": "199fa96c34f8cb62901946e09efd42e80a225fd64110c3474e29287e167c27ba",
+    "outputs/test_map_full.json": "16841035b6e259822b41dafadb8ef6740368fc28598f9ef99736fb297bb0bbd8",
+    "outputs/test_map_legacy.json": "7a5896fc0b29c295488e521b2cd09d0e7f3891652f2ec78ac04ecf55af967106",
+    "outputs/map_links.json": "6201a3d7b6c8039529fdcad3984c174512048b5829903529bf0b1f7619b06065",
+    "checks/PaymentLedger.java": "1d8121fb86cc3f22eebb7dc75b82610f0d14f06589c765c013ad3d90234c6ed6",
+    "checks/PaymentLedgerTest.java": "b7e8c89bc725e47e06dc5e7e2e82ecff137256af2e94ff5ba2fd1762d61e32ab",
+    "checks/IndependentBoundaryTest.java": "ca9dccc57d301df35e6f8879bb20ae5e8613f500f2865b309653cef8a7e1be21",
+    "fixtures/broken/PaymentLedger.java": "edadd8fbb86407ecc944ea386069476cb34b134ee9c7de30ac492b7fe1fd128d",
+    "fixtures/empty-tests/README.md": "6da9a8d8016a0c0a10473e1a55d971cdbf637ddd4e5465e8eb2cd5e79d5c4712",
+    "test_verification_policy.py": "a9954b3a856f4e1cd041b1a1a6f5058c5de6009627ec130e10d7ec62a95186b6",
+    "outputs/closure/INDEPENDENT_ACCEPTANCE_POLICY.md": "bfe13fa18cd69f3c560bc7c211c4411aaca36561ccf549d46c14901ee57fc40c",
+    "ci/verify.yml": "a0ce524d321e628a48a9cb8e9de7dc2a5970feb56bea45c7e03f9ecedf77f39f"
+  },
+  "profiles": {
+    "full": [
+      "A",
+      "B"
+    ],
+    "legacy": [
+      "A"
+    ]
+  },
+  "minimum_cases": {
+    "A": 5,
+    "B": 26,
+    "POLICY": 3
+  },
+  "check_order": [
+    "POLICY",
+    "COMPILE",
+    "A",
+    "B"
+  ],
+  "stop_on": [
+    "acceptance policy regression failure",
+    "missing required file",
+    "compile failure",
+    "environment failure"
+  ],
+  "continue_diagnostics_on": [
+    "A or B business test failure"
+  ],
+  "skip_policy": "Required SKIPPED or NOT RUN never qualifies",
+  "zero_policy": "Exit 0 with zero/missing/below-minimum test count is FAIL",
+  "map_policy": "MAP READY is map completeness/consistency only; every confirmed business target must remain YES; any mandatory evidence gap or non-PASS required check prevents QUALIFIED",
+  "version_policy": "Current committed source only; actual commit and byte hashes recorded; stale reused evidence BLOCKED",
+  "qualification": "POLICY, COMPILE and all selected checks PASS; counts met; complete mandatory policy, reviewed map ready without coverage blockers, committed sources and reviewed hashes match",
+  "exit_codes": {
+    "QUALIFIED": 0,
+    "NOT QUALIFIED": 1,
+    "BLOCKED": 2
+  },
+  "negative_hooks": "Controlled local experiments only; legacy profile is diagnostic, never full acceptance",
+  "required_targets": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09",
+    "T10",
+    "T11",
+    "T12",
+    "T13",
+    "T14",
+    "T15",
+    "T16",
+    "T17",
+    "T18",
+    "T19",
+    "T20"
+  ],
+  "nonblocking_exceptions": {},
+  "blocking_policy": "Mandatory business requirement remains YES independently of COVERED/PARTIAL/GAP and current test success; all 20 confirmed targets are mandatory; no authorized NO exception",
+  "blocking_policy_basis": "outputs/closure/INDEPENDENT_ACCEPTANCE_POLICY.md"
+}
