@@ -67,7 +67,7 @@
         "check": "A",
         "file": "checks/PaymentLedgerTest.java",
         "lines": "18",
-        "assertion": "rejects IAE for ASCII space and null, fault=false. STATIC predicate PaymentLedger.java:9 is key==null || key.isBlank(); addendum L3 establishes its oracle, but A lacks empty/fault=true input assertions."
+        "assertion": "rejects IAE for ASCII space and null, fault=false. STATIC predicate PaymentLedger.java:10 is key==null || key.isBlank(); addendum L3 establishes its oracle, but A lacks empty/fault=true input assertions."
       }
     ],
     "T10": [
@@ -75,7 +75,7 @@
         "check": "A",
         "file": "checks/PaymentLedgerTest.java",
         "lines": "18",
-        "assertion": "After invalid space/null/zero requests require(executions()==0). STATIC PaymentLedger.java:9 uses exact confirmed blank predicate; A lacks empty/fault=true rejection sequence."
+        "assertion": "After invalid space/null/zero requests require(executions()==0). STATIC PaymentLedger.java:10 uses exact confirmed blank predicate; A lacks empty/fault=true rejection sequence."
       }
     ],
     "T11": [
@@ -115,7 +115,7 @@
         "check": "A",
         "file": "checks/PaymentLedgerTest.java",
         "lines": "19",
-        "assertion": "INDIRECT: failure count 0, later same-key retry/replay total count 1; no receipt query. STATIC proof PaymentLedger.java:6,9-18: private empty map; only receipt insertion at 18; new-request fault throws at 15 before count/receipt creation/insertion, no catch/finally mutation. COMBINED proof is not direct runtime receipt observation."
+        "assertion": "INDIRECT: failure count 0, later same-key retry/replay total count 1; no receipt query. STATIC proof PaymentLedger.java:6,10-20: private empty map; only receipt insertion at 20; new-request fault throws at 16 before count/receipt creation/insertion, no catch/finally mutation. COMBINED proof is not direct runtime receipt observation."
       }
     ],
     "T16": [
@@ -382,13 +382,13 @@
         "check": "A",
         "file": "checks/PaymentLedgerTest.java",
         "lines": "18",
-        "assertion": "rejects IAE for ASCII space and null, fault=false. STATIC predicate PaymentLedger.java:9 is key==null || key.isBlank(); addendum L3 establishes its oracle, but A lacks empty/fault=true input assertions."
+        "assertion": "rejects IAE for ASCII space and null, fault=false. STATIC predicate PaymentLedger.java:10 is key==null || key.isBlank(); addendum L3 establishes its oracle, but A lacks empty/fault=true input assertions."
       },
       {
         "check": "B",
         "file": "checks/IndependentBoundaryTest.java",
         "lines": "89-92",
-        "assertion": "null, empty, space, tab/CR/LF invoke rejected IAE helper at L50; STATIC PaymentLedger.java:9 exactly uses key==null || key.isBlank(), matching approved addendum L3, ahead of provider fault L15."
+        "assertion": "null, empty, space, tab/CR/LF invoke rejected IAE helper at L50; STATIC PaymentLedger.java:10 exactly uses key==null || key.isBlank(), matching approved addendum L3, ahead of provider fault L16."
       },
       {
         "check": "B",
@@ -402,13 +402,13 @@
         "check": "A",
         "file": "checks/PaymentLedgerTest.java",
         "lines": "18",
-        "assertion": "After invalid space/null/zero requests require(executions()==0). STATIC PaymentLedger.java:9 uses exact confirmed blank predicate; A lacks empty/fault=true rejection sequence."
+        "assertion": "After invalid space/null/zero requests require(executions()==0). STATIC PaymentLedger.java:10 uses exact confirmed blank predicate; A lacks empty/fault=true rejection sequence."
       },
       {
         "check": "B",
         "file": "checks/IndependentBoundaryTest.java",
         "lines": "47-51",
-        "assertion": "Each rejected invocation asserts relative executions delta 0 at L51. STATIC PaymentLedger.java:9 confirmed blank predicate throws before count L16."
+        "assertion": "Each rejected invocation asserts relative executions delta 0 at L51. STATIC PaymentLedger.java:10 confirmed blank predicate throws before count L17."
       },
       {
         "check": "B",
@@ -514,13 +514,13 @@
         "check": "A",
         "file": "checks/PaymentLedgerTest.java",
         "lines": "19",
-        "assertion": "INDIRECT: failure count 0, later same-key retry/replay total count 1; no receipt query. STATIC proof PaymentLedger.java:6,9-18: private empty map; only receipt insertion at 18; new-request fault throws at 15 before count/receipt creation/insertion, no catch/finally mutation. COMBINED proof is not direct runtime receipt observation."
+        "assertion": "INDIRECT: failure count 0, later same-key retry/replay total count 1; no receipt query. STATIC proof PaymentLedger.java:6,10-20: private empty map; only receipt insertion at 20; new-request fault throws at 16 before count/receipt creation/insertion, no catch/finally mutation. COMBINED proof is not direct runtime receipt observation."
       },
       {
         "check": "B",
         "file": "checks/IndependentBoundaryTest.java",
         "lines": "119-139",
-        "assertion": "INDIRECT only: same-key recovery after one/20 failures and different-amount retry after failure; each rejected helper zero count then commit delta 1. STATIC PaymentLedger.java:6,9-18 proves legal new fault path exits at 15 before sole map.put at 18. No public committed-receipt accessor exists; tests do not directly query receipt absence."
+        "assertion": "INDIRECT only: same-key recovery after one/20 failures and different-amount retry after failure; each rejected helper zero count then commit delta 1. STATIC PaymentLedger.java:6,10-20 proves legal new fault path exits at 16 before sole map.put at 20. No public committed-receipt accessor exists; tests do not directly query receipt absence."
       }
     ],
     "T16": [
