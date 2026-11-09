@@ -21,28 +21,31 @@
     "test_verification_policy.py",
     "outputs/closure/INDEPENDENT_ACCEPTANCE_POLICY.md",
     "ci_case.txt",
-    "ci/verify.yml"
+    "ci/verify.yml",
+    "checks/CollisionProbe.java"
   ],
   "reviewed_source_sha256": {
     "inputs/CONFIRMED_SPEC.md": "edd5697cbb1f2fb08248906e6699d266a52a84a2d97edd1e72cba6e25fed9a3c",
     "inputs/SPEC_ADDENDUM.md": "15a0cd6f5ad7f785541d3687cb1143638f7da5978377269773da5400a4f1c87a",
     "outputs/atomic_targets_confirmed.json": "199fa96c34f8cb62901946e09efd42e80a225fd64110c3474e29287e167c27ba",
-    "outputs/test_map_full.json": "16841035b6e259822b41dafadb8ef6740368fc28598f9ef99736fb297bb0bbd8",
+    "outputs/test_map_full.json": "168d79dcd6842bb653b601bdb0e2b79532231aef7a57ffcff6596af2771d67dc",
     "outputs/test_map_legacy.json": "7a5896fc0b29c295488e521b2cd09d0e7f3891652f2ec78ac04ecf55af967106",
-    "outputs/map_links.json": "6201a3d7b6c8039529fdcad3984c174512048b5829903529bf0b1f7619b06065",
-    "checks/PaymentLedger.java": "1d8121fb86cc3f22eebb7dc75b82610f0d14f06589c765c013ad3d90234c6ed6",
+    "outputs/map_links.json": "1015a66306d6b14636c097ec829727245c9f62112d520c10721e84fbee179cf0",
+    "checks/PaymentLedger.java": "c658ae54745b9b5729c5de8cb6c887d18d4a963e7951ee5a6c9342e604dc5dbd",
     "checks/PaymentLedgerTest.java": "b7e8c89bc725e47e06dc5e7e2e82ecff137256af2e94ff5ba2fd1762d61e32ab",
     "checks/IndependentBoundaryTest.java": "ca9dccc57d301df35e6f8879bb20ae5e8613f500f2865b309653cef8a7e1be21",
     "fixtures/broken/PaymentLedger.java": "edadd8fbb86407ecc944ea386069476cb34b134ee9c7de30ac492b7fe1fd128d",
     "fixtures/empty-tests/README.md": "6da9a8d8016a0c0a10473e1a55d971cdbf637ddd4e5465e8eb2cd5e79d5c4712",
     "test_verification_policy.py": "a9954b3a856f4e1cd041b1a1a6f5058c5de6009627ec130e10d7ec62a95186b6",
     "outputs/closure/INDEPENDENT_ACCEPTANCE_POLICY.md": "bfe13fa18cd69f3c560bc7c211c4411aaca36561ccf549d46c14901ee57fc40c",
-    "ci/verify.yml": "a0ce524d321e628a48a9cb8e9de7dc2a5970feb56bea45c7e03f9ecedf77f39f"
+    "ci/verify.yml": "6867094887c7025b544841c319c4a229ab56c7e2462688660ede71ebb5b4e257",
+    "checks/CollisionProbe.java": "4c38a6a1698d7bdf8f0b042b5752400b1a538b8a78a9bb083cd59887e35a72e7"
   },
   "profiles": {
     "full": [
       "A",
-      "B"
+      "B",
+      "C"
     ],
     "legacy": [
       "A"
@@ -51,13 +54,15 @@
   "minimum_cases": {
     "A": 5,
     "B": 26,
-    "POLICY": 3
+    "POLICY": 3,
+    "C": 1
   },
   "check_order": [
     "POLICY",
     "COMPILE",
     "A",
-    "B"
+    "B",
+    "C"
   ],
   "stop_on": [
     "acceptance policy regression failure",
@@ -103,5 +108,6 @@
   ],
   "nonblocking_exceptions": {},
   "blocking_policy": "Mandatory business requirement remains YES independently of COVERED/PARTIAL/GAP and current test success; all 20 confirmed targets are mandatory; no authorized NO exception",
-  "blocking_policy_basis": "outputs/closure/INDEPENDENT_ACCEPTANCE_POLICY.md"
+  "blocking_policy_basis": "outputs/closure/INDEPENDENT_ACCEPTANCE_POLICY.md",
+  "required_check_C": "Controlled repeated-random-source receipt uniqueness probe, based on independent Reviewer B counterexample; original probe preserved"
 }

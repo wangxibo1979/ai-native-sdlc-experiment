@@ -35,6 +35,10 @@ jobs:
           set +e
           python3 validation/v42/verify.py --case "$case_name" --label "actions-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           entry_exit=$?
+          echo "V42_RESULT_BEGIN"
+          cat "validation/v42/outputs/evidence/actions-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/result.json" || exit 1
+          echo "V42_RESULT_END"
+          cat "validation/v42/outputs/evidence/actions-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/"*.log
           echo "V42_ENTRY_EXIT=$entry_exit"
           exit "$entry_exit"
         env:

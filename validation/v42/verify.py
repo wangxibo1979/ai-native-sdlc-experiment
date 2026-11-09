@@ -63,7 +63,7 @@ def main():
     if result['map_state'] != 'MAP READY':
         result['reasons'].append('MAP_INCOMPLETE')
     selected = contract['profiles'][name]
-    for key in ['POLICY','COMPILE','A','B']:
+    for key in ['POLICY','COMPILE','A','B','C']:
         result['checks'][key] = {'status':'NOT RUN','command':None,'exit':None,'test_count':None}
 
     def execute(key, cmd, need_count=False):
@@ -92,8 +92,8 @@ def main():
         result['conclusion']='BLOCKED'
     else:
         source = 'fixtures/broken/PaymentLedger.java' if a.case=='failure' else 'checks/PaymentLedger.java'
-        files = [source,'checks/PaymentLedgerTest.java'] + (['checks/IndependentBoundaryTest.java'] if 'B' in selected else [])
-        if a.case == 'missing': files[-1]='fixtures/missing/IndependentBoundaryTest.java'
+        files = [source,'checks/PaymentLedgerTest.java'] + (['checks/IndependentBoundaryTest.java'] if 'B' in selected else []) + (['checks/CollisionProbe.java'] if 'C' in selected else [])
+        if a.case == 'missing': files[files.index('checks/IndependentBoundaryTest.java')]='fixtures/missing/IndependentBoundaryTest.java'
         missing=[f for f in files if not (ROOT/f).is_file()]
         build=ROOT/'build'/a.label; build.mkdir(parents=True,exist_ok=True)
         policy_cmd = [sys.executable,'-c',"import unittest,sys; s=unittest.defaultTestLoader.loadTestsFromName('test_verification_policy'); r=unittest.TextTestRunner(verbosity=2).run(s); print('CASES='+str(r.testsRun)+' FAILURES='+str(len(r.failures)+len(r.errors))); sys.exit(not r.wasSuccessful())"]
@@ -107,12 +107,12 @@ def main():
                 for key in selected:
                     if a.case=='skip' and key=='B':
                         result['checks'][key].update(status='SKIPPED',reason='CONTROLLED_SKIP'); continue
-                    cmd=['java','-cp',str(build),'PaymentLedgerTest' if key=='A' else 'IndependentBoundaryTest']
+                    cmd=['java','-cp',str(build),{'A':'PaymentLedgerTest','B':'IndependentBoundaryTest','C':'CollisionProbe'}[key]]
                     if a.case=='zero' and key=='B':cmd=[sys.executable,'-c',"import unittest,sys; s=unittest.defaultTestLoader.discover('fixtures/empty-tests'); r=unittest.TextTestRunner().run(s); print('CASES='+str(r.testsRun)+' FAILURES='+str(len(r.failures)+len(r.errors))); sys.exit(not r.wasSuccessful())"]
                     execute(key,cmd,True)
         # Compile/missing prerequisites stop tests; business failures still collect the other test's diagnostics.
         statuses=[result['checks'][k]['status'] for k in ['POLICY','COMPILE',*selected]]
-        for k in ['A','B']:
+        for k in ['A','B','C']:
             if k not in selected:result['checks'][k]['applicability']='NOT REQUIRED BY CONTROLLED LEGACY PROFILE'
         if all(s=='PASS' for s in statuses) and not result['reasons']:
             result['conclusion']='QUALIFIED'

@@ -597,6 +597,12 @@
         "file": "checks/IndependentBoundaryTest.java",
         "lines": "186-194",
         "assertion": "Different amounts A10/B20: check(!a.equals(b)) at L194."
+      },
+      {
+        "check": "C",
+        "file": "checks/CollisionProbe.java",
+        "lines": "24-31",
+        "assertion": "Two distinct legal keys under repeated random bytes must return different IDs; T20_DISTINCT=true and CASES=1 FAILURES=0; combined with unbounded BigInteger monotonic sequence on successful new commit only."
       }
     ]
   }
