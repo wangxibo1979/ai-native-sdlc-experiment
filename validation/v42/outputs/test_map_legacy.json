@@ -1,0 +1,162 @@
+[
+  {
+    "来源需求": "L3：request key is an exact String identifier",
+    "可观察结果": "键标识按 String 内容精确相等判定；对象实例不同不改变相等关系，大小写或非空白字符串的外围空格不同不被合并。",
+    "检查方式": "NONE",
+    "覆盖状态": "GAP",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L3：positive Java long，无额外业务上限；L5：non-null receipt ID",
+    "可观察结果": "故障关闭时，每个合法新键及任意正数 long 金额的首次请求返回非 null 回执 ID，金额接受域包括 1 至 Long.MAX_VALUE。",
+    "检查方式": "AUTO",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L3：positive Java long，无额外业务上限；L5：exactly one simulated business operation",
+    "可观察结果": "故障关闭时，每个合法新键及任意正数 long 金额的首次请求使 executions 相对请求前恰好增加 1。",
+    "检查方式": "AUTO",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L6：Repeating the exact key and amount returns the original receipt ID",
+    "可观察结果": "已提交的合法请求同键同金额重放时，每次均返回原回执 ID；金额仍适用完整正数 long 域，包含失败后成功重试形成的提交。",
+    "检查方式": "AUTO",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L6：with no extra operation",
+    "可观察结果": "已提交的合法请求同键同金额重放时，每次 executions 均保持不变，包含重复多次、long 边界和失败后成功重试形成的提交。",
+    "检查方式": "AUTO",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L7：Reusing a key with a different amount throws IllegalArgumentException；L8 非正金额非法",
+    "可观察结果": "同一已提交合法键再次请求任意不同的 long 金额时，抛出 IllegalArgumentException；不因故障开启而改成 IllegalStateException。",
+    "检查方式": "AUTO",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L7：preserving the previous receipt",
+    "可观察结果": "同一已提交合法键发生任意不同 long 金额冲突后，以原金额重放仍返回原回执 ID。",
+    "检查方式": "NONE",
+    "覆盖状态": "GAP",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L7：preserving the previous operation count",
+    "可观察结果": "同一已提交合法键发生任意不同 long 金额冲突后，executions 与冲突前相等。",
+    "检查方式": "AUTO",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L3：null or blank keys are invalid；L8：Invalid key throws IllegalArgumentException；SPEC_ADDENDUM.md L3、L5：blank = Java 17 String.isBlank()",
+    "可观察结果": "键为 null 或按 Java 17 String.isBlank() 判定为 blank 时请求抛出 IllegalArgumentException；故障开关开启不豁免此输入规则。",
+    "检查方式": "COMBINED",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L3：null or blank keys are invalid；L8：without a business operation；SPEC_ADDENDUM.md L3、L5：blank = Java 17 String.isBlank()",
+    "可观察结果": "键为 null 或按 Java 17 String.isBlank() 判定为 blank 时请求不增加 executions；故障开关开启不豁免此规则。",
+    "检查方式": "COMBINED",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L3：amount is a Java long and must be positive；L8：non-positive amount throws IllegalArgumentException",
+    "可观察结果": "金额为任意非正 long 值时请求抛出 IllegalArgumentException，包括 0、负数和 Long.MIN_VALUE；故障开启不豁免此规则。",
+    "检查方式": "AUTO",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L8：non-positive amount without a business operation",
+    "可观察结果": "金额为任意非正 long 值时请求不增加 executions，故障开启不豁免此规则。",
+    "检查方式": "AUTO",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L9：failBeforeCommit on a new request throws IllegalStateException",
+    "可观察结果": "每个合法且未提交的新请求在 failBeforeCommit 开启时抛出 IllegalStateException；失败后尚未提交的再次尝试仍适用该条件。",
+    "检查方式": "AUTO",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L9：before committing any operation",
+    "可观察结果": "合法新请求在 failBeforeCommit 开启时失败后，executions 与该次失败前相等。",
+    "检查方式": "AUTO",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L9：before committing any receipt",
+    "可观察结果": "合法新请求在 failBeforeCommit 开启时失败后，该键没有已提交回执；此语义不要求新增回执查询接口。",
+    "检查方式": "COMBINED",
+    "覆盖状态": "COVERED",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L9：a later legal retry can succeed once；L5 non-null receipt",
+    "可观察结果": "故障关闭后，以失败请求的同键同金额合法重试返回非 null 回执 ID。",
+    "检查方式": "AUTO",
+    "覆盖状态": "COVERED",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L9：a later legal retry can succeed once；L5 exactly one operation",
+    "可观察结果": "故障关闭后，以失败请求的同键同金额成功重试使 executions 比失败序列开始前恰好增加 1；后续重放的次数约束归入 L6。",
+    "检查方式": "AUTO",
+    "覆盖状态": "PARTIAL",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L9：already committed identical replay requires no provider operation；L6 原回执",
+    "可观察结果": "已提交的合法请求在 failBeforeCommit 开启时同键同金额重放，仍返回原回执 ID。",
+    "检查方式": "NONE",
+    "覆盖状态": "GAP",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L9：already committed identical replay requires no provider operation",
+    "可观察结果": "已提交的合法请求在 failBeforeCommit 开启时同键同金额重放，executions 与重放前相等。",
+    "检查方式": "NONE",
+    "覆盖状态": "GAP",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  },
+  {
+    "来源需求": "L10：Different legal keys produce distinct receipt IDs",
+    "可观察结果": "任意两个不同合法键成功提交后回执 ID 不相同，不依赖两个请求的金额是否相同。",
+    "检查方式": "NONE",
+    "覆盖状态": "GAP",
+    "执行证据": "PENDING",
+    "是否阻断": "YES"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "baseline_commit": "2f9bfec77f18da670ea445c193e7956ac61f5623",
+  "files": {
+    "outputs/test_map_full.json": "7a5c452282ea6dd9bb834a253ecef3c6319d909f945877e127ce8e18c1da37f0",
+    "outputs/test_map_legacy.json": "5a8645ee9fc427699d8bfe6a6e031d0102402c953fd556f09d69a0b9137d8f2e",
+    "verification_contract.json": "8b5d810f9f5a345abdc2ec6dd8e29806aa5349a3afeca68f45093315299ca0a1",
+    "verify.py": "802885caf6b41fdd3f672a7e52b2ade47f07f597af2a3c18a1db1ed7d9f11884",
+    "outputs/AI_NATIVE_V42_VALIDATION_REPORT.md": "5cb2480bbcadd53403bb7666d73ad6459c7ff734b8d2054b76c3815238e6f64d"
+  }
+}

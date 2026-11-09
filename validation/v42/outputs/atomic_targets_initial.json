@@ -1,0 +1,418 @@
+[
+  {
+    "来源需求": "L3 Scope：single-threaded, in-memory Java 17 payment ledger in one process",
+    "可观察结果": "实验对象在 Java 17 的单进程、单线程、内存环境中可运行。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：request key is an exact String identifier；L5 首次合法请求；L10 不同合法键",
+    "可观察结果": "合法键 \"k\" 与 \"K\" 各自首次成功提交后，其回执 ID 不相同。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：request key is an exact String identifier；L5 首次合法请求；L10 不同合法键",
+    "可观察结果": "合法键 \"k\" 与 \" k \" 各自首次成功提交后，其回执 ID 不相同。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：request key is an exact String identifier；L6 exact key and amount",
+    "可观察结果": "内容相同但对象实例不同的非空白 String 键，以同一金额重放时返回原回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L5：First legal key/amount request produces a non-null receipt ID",
+    "可观察结果": "故障开关关闭时，首次合法键与正数金额请求返回非 null 回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L5：executes exactly one simulated business operation",
+    "可观察结果": "故障开关关闭时，首次合法键与正数金额请求使 executions 比请求前恰好增加 1。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L6：Repeating the exact key and amount returns the original receipt ID",
+    "可观察结果": "已提交请求使用完全相同的键和金额重放一次时，返回原回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L6：with no extra operation",
+    "可观察结果": "已提交请求使用完全相同的键和金额重放一次后，executions 与重放前相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L6：Repeating the exact key and amount returns the original receipt ID",
+    "可观察结果": "已提交请求使用完全相同的键和金额连续重放多次时，每次返回原回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L6：with no extra operation",
+    "可观察结果": "已提交请求使用完全相同的键和金额连续重放多次后，executions 与首次提交后相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L7：Reusing a key with a different amount throws IllegalArgumentException",
+    "可观察结果": "同一已提交键再次提交不同的正数金额时，抛出 IllegalArgumentException。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L7：preserving the previous receipt",
+    "可观察结果": "同一已提交键发生不同正数金额冲突后，再以原金额重放仍返回原回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L7：preserving the previous … operation count",
+    "可观察结果": "同一已提交键发生不同正数金额冲突后，executions 与冲突前相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：null … keys are invalid；L8：Invalid key … throws IllegalArgumentException",
+    "可观察结果": "以 null 键和正数金额请求时，抛出 IllegalArgumentException。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：null … keys are invalid；L8：without a business operation",
+    "可观察结果": "以 null 键和正数金额请求后，executions 与请求前相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：blank keys are invalid；L8：Invalid key … throws IllegalArgumentException",
+    "可观察结果": "以空字符串键和正数金额请求时，抛出 IllegalArgumentException。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：blank keys are invalid；L8：without a business operation",
+    "可观察结果": "以空字符串键和正数金额请求后，executions 与请求前相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：blank keys are invalid；L8：Invalid key … throws IllegalArgumentException",
+    "可观察结果": "以仅含 ASCII 空格的键和正数金额请求时，抛出 IllegalArgumentException。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：blank keys are invalid；L8：without a business operation",
+    "可观察结果": "以仅含 ASCII 空格的键和正数金额请求后，executions 与请求前相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：Amount is a Java long and must be positive；L8：non-positive amount throws IllegalArgumentException",
+    "可观察结果": "以合法新键和金额 0 请求时，抛出 IllegalArgumentException。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L8：non-positive amount … without a business operation",
+    "可观察结果": "以合法新键和金额 0 请求后，executions 与请求前相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：Amount is a Java long and must be positive；L8：non-positive amount throws IllegalArgumentException",
+    "可观察结果": "以合法新键和金额 -1 请求时，抛出 IllegalArgumentException。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L8：non-positive amount … without a business operation",
+    "可观察结果": "以合法新键和金额 -1 请求后，executions 与请求前相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：Amount is a Java long and must be positive；L8：non-positive amount throws IllegalArgumentException",
+    "可观察结果": "以合法新键和金额 Long.MIN_VALUE 请求时，抛出 IllegalArgumentException。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L8：non-positive amount … without a business operation",
+    "可观察结果": "以合法新键和金额 Long.MIN_VALUE 请求后，executions 与请求前相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：Java long … positive；L5 首次合法请求",
+    "可观察结果": "故障开关关闭时，合法新键与金额 1 的请求返回非 null 回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：Java long … positive；L5 exactly one simulated business operation",
+    "可观察结果": "故障开关关闭时，合法新键与金额 1 的请求使 executions 恰好增加 1。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：Java long … no additional business upper bound；L5 首次合法请求",
+    "可观察结果": "故障开关关闭时，合法新键与金额 2147483648L 的请求返回非 null 回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：Java long … no additional business upper bound；L5 exactly one simulated business operation",
+    "可观察结果": "故障开关关闭时，合法新键与金额 2147483648L 的请求使 executions 恰好增加 1。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：Java long … no additional business upper bound；L5 首次合法请求",
+    "可观察结果": "故障开关关闭时，合法新键与金额 Long.MAX_VALUE - 1 的请求返回非 null 回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：Java long … no additional business upper bound；L5 exactly one simulated business operation",
+    "可观察结果": "故障开关关闭时，合法新键与金额 Long.MAX_VALUE - 1 的请求使 executions 恰好增加 1。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：Java long … no additional business upper bound；L5 首次合法请求",
+    "可观察结果": "故障开关关闭时，合法新键与金额 Long.MAX_VALUE 的请求返回非 null 回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3：Java long … no additional business upper bound；L5 exactly one simulated business operation",
+    "可观察结果": "故障开关关闭时，合法新键与金额 Long.MAX_VALUE 的请求使 executions 恰好增加 1。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3 正数 long 全域；L6 同键同金额返回原回执",
+    "可观察结果": "金额为 Long.MAX_VALUE 的已提交请求，以同键同金额重放时返回原回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3 正数 long 全域；L6 no extra operation",
+    "可观察结果": "金额为 Long.MAX_VALUE 的已提交请求，以同键同金额重放后 executions 不变。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L3 正数 long 全域；L7 同键不同金额冲突",
+    "可观察结果": "同一键已成功提交金额 Long.MAX_VALUE 后，再请求金额 Long.MAX_VALUE - 1 时，抛出 IllegalArgumentException。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L7：preserving the previous receipt；L3 long 边界",
+    "可观察结果": "同一键从 Long.MAX_VALUE 到 Long.MAX_VALUE - 1 的冲突后，以 Long.MAX_VALUE 重放仍返回原回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L7：preserving the previous … operation count；L3 long 边界",
+    "可观察结果": "同一键从 Long.MAX_VALUE 到 Long.MAX_VALUE - 1 的冲突后，executions 与冲突前相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L9：failBeforeCommit … on a new request … throws IllegalStateException",
+    "可观察结果": "新合法请求在 failBeforeCommit 开启时，抛出 IllegalStateException。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L9：before committing any … operation",
+    "可观察结果": "新合法请求在 failBeforeCommit 开启时失败后，executions 与失败前相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L9：before committing any receipt",
+    "可观察结果": "新合法请求在 failBeforeCommit 开启时失败后，该键尚无已提交回执。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L9：a later legal retry can succeed once",
+    "可观察结果": "故障关闭后，以失败请求的同键同金额重试，返回非 null 回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L9：a later legal retry can succeed once",
+    "可观察结果": "故障关闭后，以失败请求的同键同金额成功重试，使 executions 比首次失败前恰好增加 1。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L9：a later legal retry can succeed once；L6 原回执重放",
+    "可观察结果": "失败后成功重试的请求，再次以同键同金额重放时返回成功重试所得回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L9：a later legal retry can succeed once；L6 no extra operation",
+    "可观察结果": "失败后成功重试的请求，再次以同键同金额重放后，executions 与成功重试后相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L9：An already committed identical replay requires no provider operation；L6 原回执",
+    "可观察结果": "已成功提交的请求在 failBeforeCommit 开启时同键同金额重放，仍返回原回执 ID。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L9：An already committed identical replay requires no provider operation",
+    "可观察结果": "已成功提交的请求在 failBeforeCommit 开启时同键同金额重放，executions 与重放前相等。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L10：Different legal keys produce distinct receipt IDs",
+    "可观察结果": "两个不同合法键以相同正数金额各自首次成功提交后，所得回执 ID 不相同。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L10：Different legal keys produce distinct receipt IDs",
+    "可观察结果": "两个不同合法键以不同正数金额各自首次成功提交后，所得回执 ID 不相同。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L14：Test outcomes must follow these fixed rules",
+    "可观察结果": "验收预期不存在与 L3、L5–L10 已确认规则相矛盾的断言。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L14：Unspecified real business choices must be recorded as questions rather than silently invented",
+    "可观察结果": "未规定的真实业务选择在审计文档中以问题形式标出。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  },
+  {
+    "来源需求": "L12：… are NOT claimed；L14：No real human business approval is represented",
+    "可观察结果": "验收结论的声明范围不包含持久化、机器崩溃恢复、认证、真实转账、并发、多服务一致性或真人业务批准。",
+    "检查方式": "PENDING",
+    "覆盖状态": "PENDING",
+    "执行证据": "PENDING",
+    "是否阻断": "PENDING"
+  }
+]

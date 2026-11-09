@@ -1,0 +1,4 @@
+JAVA=17.0.8
+CONTROL=first SecureRandom provider emits repeated zero bytes; UUID implementation unchanged
+A=00000000-0000-4000-8000-000000000000 B=00000000-0000-4000-8000-000000000000 EXECUTIONS=2
+T20_DISTINCT=false

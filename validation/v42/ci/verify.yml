@@ -1,0 +1,52 @@
+name: verify
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: javac --release 17 -d build-agent agent-evidence/Payment.java agent-evidence/PaymentTest.java
+      - run: java -cp build-agent PaymentTest
+      - run: python3 run_tests.py
+      - run: python3 http-experiment/test_http.py
+      - run: npm install --global @fission-ai/openspec@1.13.1
+      - run: openspec validate --specs --strict --no-interactive
+        env:
+          OPENSPEC_TELEMETRY: '0'
+      - run: openspec validate --archived --no-interactive
+        env:
+          OPENSPEC_TELEMETRY: '0'
+      - name: v4.2 complete verification entry
+        shell: bash
+        run: |
+          echo "V42_CHECKOUT_SHA=$(git rev-parse HEAD)"
+          echo "V42_EVENT_SHA=$GITHUB_SHA"
+          case_name=$(cat validation/v42/ci_case.txt)
+          echo "V42_CASE=$case_name"
+          set +e
+          python3 validation/v42/verify.py --case "$case_name" --label "actions-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          entry_exit=$?
+          echo "V42_RESULT_BEGIN"
+          cat "validation/v42/outputs/evidence/actions-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/result.json" || exit 1
+          echo "V42_RESULT_END"
+          cat "validation/v42/outputs/evidence/actions-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/"*.log
+          echo "V42_ENTRY_EXIT=$entry_exit"
+          exit "$entry_exit"
+        env:
+          PYTHONIOENCODING: utf-8
+      - name: Preserve v4.2 actual execution evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v42-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: validation/v42/outputs/evidence/
+          if-no-files-found: error

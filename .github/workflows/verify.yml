@@ -25,3 +25,28 @@ jobs:
       - run: openspec validate --archived --no-interactive
         env:
           OPENSPEC_TELEMETRY: '0'
+      - name: v4.2 complete verification entry
+        shell: bash
+        run: |
+          echo "V42_CHECKOUT_SHA=$(git rev-parse HEAD)"
+          echo "V42_EVENT_SHA=$GITHUB_SHA"
+          case_name=$(cat validation/v42/ci_case.txt)
+          echo "V42_CASE=$case_name"
+          set +e
+          python3 validation/v42/verify.py --case "$case_name" --label "actions-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          entry_exit=$?
+          echo "V42_RESULT_BEGIN"
+          cat "validation/v42/outputs/evidence/actions-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/result.json" || exit 1
+          echo "V42_RESULT_END"
+          cat "validation/v42/outputs/evidence/actions-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/"*.log
+          echo "V42_ENTRY_EXIT=$entry_exit"
+          exit "$entry_exit"
+        env:
+          PYTHONIOENCODING: utf-8
+      - name: Preserve v4.2 actual execution evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v42-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: validation/v42/outputs/evidence/
+          if-no-files-found: error

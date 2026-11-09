@@ -1,0 +1,34 @@
+{
+  "before_commit": "2f9bfec77f18da670ea445c193e7956ac61f5623",
+  "changed_NO_to_YES": {
+    "full": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "legacy": [
+      15,
+      16
+    ]
+  },
+  "covered_counts_unchanged": true,
+  "targets_changed": false,
+  "no_exceptions": true
+}
