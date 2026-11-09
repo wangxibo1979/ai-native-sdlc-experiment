@@ -1,0 +1,10 @@
+{
+  "mutation_id": "M1",
+  "scope": "isolated candidate only; original V2 untouched",
+  "chosen_change": "narrow stored positive long amount to signed 32-bit before storing receipt",
+  "observable_violation": "valid large same-key same-amount replay can incorrectly conflict",
+  "reason_original_tests_may_miss": "A tests use only small amounts",
+  "blindness": "B not told mutation location or content; spec-first review already completed",
+  "disclosure_policy": "publish controller after B review completes",
+  "recorded_at": "2026-11-08T15:49:31.845145+00:00"
+}

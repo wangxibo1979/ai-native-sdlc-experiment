@@ -1,0 +1,15 @@
+{
+  "label": "v6-A-repaired",
+  "command": [
+    "java",
+    "-cp",
+    "validation/v6/build-A-repaired",
+    "PaymentLedgerTest"
+  ],
+  "cwd": "E:\\标准化投标相关文件\\AI机制实验\\v41-validation",
+  "start": "2026-11-09T01:22:24.788410+00:00",
+  "end": "2026-11-09T01:22:33.015880+00:00",
+  "actual_exit": 0,
+  "expected_exit": 0,
+  "log": "v6-A-repaired.log"
+}

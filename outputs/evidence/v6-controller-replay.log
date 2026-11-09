@@ -1,0 +1,158 @@
+original PaymentLedgerTest EXIT 0
+PASS first valid request
+PASS retry does not reexecute
+PASS conflicting parameters rejected without side effect
+PASS invalid input has no side effect
+PASS failure before commit can be retried
+CASES=5 FAILURES=0
+
+original IndependentBoundaryTest EXIT 0
+2026-11-09T01:23:23.291738600Z PASS B01 first legal request
+2026-11-09T01:23:23.321330500Z PASS B02 repeated exact replay
+2026-11-09T01:23:23.330333800Z PASS B03 greater conflicting amount preserves receipt
+2026-11-09T01:23:23.333054900Z PASS B04 lower conflicting amount preserves receipt
+2026-11-09T01:23:23.333363100Z PASS B05 invalid key variants
+2026-11-09T01:23:23.333363100Z PASS B06 nonpositive amount variants
+2026-11-09T01:23:23.333363100Z PASS B07 positive long endpoints
+2026-11-09T01:23:23.333363100Z PASS B08 adjacent amounts above integer maximum
+2026-11-09T01:23:23.346436300Z PASS B09 long amounts with identical low 32 bits
+2026-11-09T01:23:23.350439600Z PASS B10 failure then successful retry
+2026-11-09T01:23:23.353461300Z PASS B11 repeated provider failures then retry
+2026-11-09T01:23:23.358469600Z PASS B12 failed attempt does not bind amount
+2026-11-09T01:23:23.360461700Z PASS B13 committed replay bypasses provider fault
+2026-11-09T01:23:23.362459800Z PASS B14 conflict remains invalid under provider fault
+2026-11-09T01:23:23.364463700Z PASS B15 validation takes precedence over provider fault
+2026-11-09T01:23:23.366530Z PASS B16 committed key still rejects invalid amounts
+2026-11-09T01:23:23.368443Z PASS B17 key case is significant
+2026-11-09T01:23:23.368443Z PASS B18 nonblank key padding is significant
+2026-11-09T01:23:23.368443Z PASS B19 distinct String objects have value identity
+2026-11-09T01:23:23.376718Z PASS B20 hash collisions retain distinct keys
+2026-11-09T01:23:23.379277600Z PASS B21 Unicode normalization is not key identity
+2026-11-09T01:23:23.382047300Z PASS B22 numeric-looking identifiers stay exact
+2026-11-09T01:23:23.384077700Z PASS B23 mixed-key failure conflict replay sequence
+2026-11-09T01:23:23.386091900Z PASS B24 receipt uniqueness is independent of amount
+2026-11-09T01:23:23.389966700Z PASS B25 invalid first attempt does not poison key
+2026-11-09T01:23:23.392956100Z PASS B26 adjacent long-maximum conflict preserves receipt
+2026-11-09T01:23:23.392956100Z CASES=26 FAILURES=0
+
+original MinimalReplayRepro EXIT 0
+INPUT_1 key=large amount=2147483648 failBeforeCommit=false
+OBSERVED_1 receipt=a9b3c734-6e59-4220-98ab-ba3084a67d5c executionDelta=1
+INPUT_2 key=large amount=2147483648 failBeforeCommit=false
+EXPECTED_2 receipt=a9b3c734-6e59-4220-98ab-ba3084a67d5c executionDelta=1 no exception
+OBSERVED_2 receipt=a9b3c734-6e59-4220-98ab-ba3084a67d5c executionDelta=1
+
+mutant PaymentLedgerTest EXIT 0
+PASS first valid request
+PASS retry does not reexecute
+PASS conflicting parameters rejected without side effect
+PASS invalid input has no side effect
+PASS failure before commit can be retried
+CASES=5 FAILURES=0
+
+mutant IndependentBoundaryTest EXIT 1
+2026-11-09T01:23:50.644415400Z PASS B01 first legal request
+2026-11-09T01:23:50.657304Z PASS B02 repeated exact replay
+2026-11-09T01:23:50.661314300Z PASS B03 greater conflicting amount preserves receipt
+2026-11-09T01:23:50.662309700Z PASS B04 lower conflicting amount preserves receipt
+2026-11-09T01:23:50.663309800Z PASS B05 invalid key variants
+2026-11-09T01:23:50.664308800Z PASS B06 nonpositive amount variants
+2026-11-09T01:23:50.664308800Z FAIL B07 positive long endpoints: java.lang.IllegalArgumentException: conflicting parameters
+java.lang.IllegalArgumentException: conflicting parameters
+	at PaymentLedger.submit(PaymentLedger.java:12)
+	at IndependentBoundaryTest.replay(IndependentBoundaryTest.java:43)
+	at IndependentBoundaryTest.lambda$main$7(IndependentBoundaryTest.java:105)
+	at IndependentBoundaryTest.test(IndependentBoundaryTest.java:57)
+	at IndependentBoundaryTest.main(IndependentBoundaryTest.java:99)
+2026-11-09T01:23:50.666558200Z FAIL B08 adjacent amounts above integer maximum: java.lang.IllegalArgumentException: conflicting parameters
+java.lang.IllegalArgumentException: conflicting parameters
+	at PaymentLedger.submit(PaymentLedger.java:12)
+	at IndependentBoundaryTest.replay(IndependentBoundaryTest.java:43)
+	at IndependentBoundaryTest.lambda$main$8(IndependentBoundaryTest.java:111)
+	at IndependentBoundaryTest.test(IndependentBoundaryTest.java:57)
+	at IndependentBoundaryTest.main(IndependentBoundaryTest.java:107)
+2026-11-09T01:23:50.667555900Z PASS B09 long amounts with identical low 32 bits
+2026-11-09T01:23:50.668562400Z PASS B10 failure then successful retry
+2026-11-09T01:23:50.669555600Z PASS B11 repeated provider failures then retry
+2026-11-09T01:23:50.669555600Z PASS B12 failed attempt does not bind amount
+2026-11-09T01:23:50.670551300Z PASS B13 committed replay bypasses provider fault
+2026-11-09T01:23:50.671552Z PASS B14 conflict remains invalid under provider fault
+2026-11-09T01:23:50.671552Z PASS B15 validation takes precedence over provider fault
+2026-11-09T01:23:50.671552Z PASS B16 committed key still rejects invalid amounts
+2026-11-09T01:23:50.672554400Z PASS B17 key case is significant
+2026-11-09T01:23:50.673552900Z PASS B18 nonblank key padding is significant
+2026-11-09T01:23:50.673552900Z PASS B19 distinct String objects have value identity
+2026-11-09T01:23:50.674551200Z PASS B20 hash collisions retain distinct keys
+2026-11-09T01:23:50.675555200Z PASS B21 Unicode normalization is not key identity
+2026-11-09T01:23:50.677474900Z PASS B22 numeric-looking identifiers stay exact
+2026-11-09T01:23:50.677474900Z PASS B23 mixed-key failure conflict replay sequence
+2026-11-09T01:23:50.677474900Z PASS B24 receipt uniqueness is independent of amount
+2026-11-09T01:23:50.677474900Z PASS B25 invalid first attempt does not poison key
+2026-11-09T01:23:50.677474900Z FAIL B26 adjacent long-maximum conflict preserves receipt: java.lang.IllegalArgumentException: conflicting parameters
+java.lang.IllegalArgumentException: conflicting parameters
+	at PaymentLedger.submit(PaymentLedger.java:12)
+	at IndependentBoundaryTest.replay(IndependentBoundaryTest.java:43)
+	at IndependentBoundaryTest.lambda$main$26(IndependentBoundaryTest.java:222)
+	at IndependentBoundaryTest.test(IndependentBoundaryTest.java:57)
+	at IndependentBoundaryTest.main(IndependentBoundaryTest.java:218)
+2026-11-09T01:23:50.677474900Z CASES=26 FAILURES=3
+Exception in thread "main" java.lang.AssertionError: Independent boundary cases failed: 3
+	at IndependentBoundaryTest.main(IndependentBoundaryTest.java:225)
+
+mutant MinimalReplayRepro EXIT 1
+INPUT_1 key=large amount=2147483648 failBeforeCommit=false
+OBSERVED_1 receipt=0c41a737-c684-4e38-97cb-e798e97575fe executionDelta=1
+INPUT_2 key=large amount=2147483648 failBeforeCommit=false
+EXPECTED_2 receipt=0c41a737-c684-4e38-97cb-e798e97575fe executionDelta=1 no exception
+OBSERVED_2 exception=java.lang.IllegalArgumentException: conflicting parameters executionDelta=1
+Exception in thread "main" java.lang.AssertionError: Legal identical replay must return original receipt
+	at MinimalReplayRepro.main(MinimalReplayRepro.java:19)
+Caused by: java.lang.IllegalArgumentException: conflicting parameters
+	at PaymentLedger.submit(PaymentLedger.java:12)
+	at MinimalReplayRepro.main(MinimalReplayRepro.java:12)
+
+repaired PaymentLedgerTest EXIT 0
+PASS first valid request
+PASS retry does not reexecute
+PASS conflicting parameters rejected without side effect
+PASS invalid input has no side effect
+PASS failure before commit can be retried
+CASES=5 FAILURES=0
+
+repaired IndependentBoundaryTest EXIT 0
+2026-11-09T01:24:17.041339400Z PASS B01 first legal request
+2026-11-09T01:24:17.048416700Z PASS B02 repeated exact replay
+2026-11-09T01:24:17.057256800Z PASS B03 greater conflicting amount preserves receipt
+2026-11-09T01:24:17.057256800Z PASS B04 lower conflicting amount preserves receipt
+2026-11-09T01:24:17.058770Z PASS B05 invalid key variants
+2026-11-09T01:24:17.059783600Z PASS B06 nonpositive amount variants
+2026-11-09T01:24:17.060958500Z PASS B07 positive long endpoints
+2026-11-09T01:24:17.061979200Z PASS B08 adjacent amounts above integer maximum
+2026-11-09T01:24:17.062979300Z PASS B09 long amounts with identical low 32 bits
+2026-11-09T01:24:17.063981800Z PASS B10 failure then successful retry
+2026-11-09T01:24:17.064970800Z PASS B11 repeated provider failures then retry
+2026-11-09T01:24:17.065980300Z PASS B12 failed attempt does not bind amount
+2026-11-09T01:24:17.066974400Z PASS B13 committed replay bypasses provider fault
+2026-11-09T01:24:17.067483300Z PASS B14 conflict remains invalid under provider fault
+2026-11-09T01:24:17.067483300Z PASS B15 validation takes precedence over provider fault
+2026-11-09T01:24:17.069507100Z PASS B16 committed key still rejects invalid amounts
+2026-11-09T01:24:17.069507100Z PASS B17 key case is significant
+2026-11-09T01:24:17.070504500Z PASS B18 nonblank key padding is significant
+2026-11-09T01:24:17.071510600Z PASS B19 distinct String objects have value identity
+2026-11-09T01:24:17.071510600Z PASS B20 hash collisions retain distinct keys
+2026-11-09T01:24:17.072510500Z PASS B21 Unicode normalization is not key identity
+2026-11-09T01:24:17.072510500Z PASS B22 numeric-looking identifiers stay exact
+2026-11-09T01:24:17.074513900Z PASS B23 mixed-key failure conflict replay sequence
+2026-11-09T01:24:17.075515500Z PASS B24 receipt uniqueness is independent of amount
+2026-11-09T01:24:17.077166200Z PASS B25 invalid first attempt does not poison key
+2026-11-09T01:24:17.077166200Z PASS B26 adjacent long-maximum conflict preserves receipt
+2026-11-09T01:24:17.077166200Z CASES=26 FAILURES=0
+
+repaired MinimalReplayRepro EXIT 0
+INPUT_1 key=large amount=2147483648 failBeforeCommit=false
+OBSERVED_1 receipt=994db624-c931-4795-9899-f3a54991fa90 executionDelta=1
+INPUT_2 key=large amount=2147483648 failBeforeCommit=false
+EXPECTED_2 receipt=994db624-c931-4795-9899-f3a54991fa90 executionDelta=1 no exception
+OBSERVED_2 receipt=994db624-c931-4795-9899-f3a54991fa90 executionDelta=1
+
+V6_EXPECTED_A_PASS_B_DETECTION_AND_REPAIR_REPLAY_COMPLETE

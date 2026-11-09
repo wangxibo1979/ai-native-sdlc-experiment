@@ -1,0 +1,47 @@
+2026-11-08T15:54:00.490865Z PASS B01 first legal request
+2026-11-08T15:54:00.499856100Z PASS B02 repeated exact replay
+2026-11-08T15:54:00.504857700Z PASS B03 greater conflicting amount preserves receipt
+2026-11-08T15:54:00.505859200Z PASS B04 lower conflicting amount preserves receipt
+2026-11-08T15:54:00.506857300Z PASS B05 invalid key variants
+2026-11-08T15:54:00.506857300Z PASS B06 nonpositive amount variants
+2026-11-08T15:54:00.507858500Z FAIL B07 positive long endpoints: java.lang.IllegalArgumentException: conflicting parameters
+java.lang.IllegalArgumentException: conflicting parameters
+	at PaymentLedger.submit(PaymentLedger.java:12)
+	at IndependentBoundaryTest.replay(IndependentBoundaryTest.java:43)
+	at IndependentBoundaryTest.lambda$main$7(IndependentBoundaryTest.java:105)
+	at IndependentBoundaryTest.test(IndependentBoundaryTest.java:57)
+	at IndependentBoundaryTest.main(IndependentBoundaryTest.java:99)
+2026-11-08T15:54:00.509859400Z FAIL B08 adjacent amounts above integer maximum: java.lang.IllegalArgumentException: conflicting parameters
+java.lang.IllegalArgumentException: conflicting parameters
+	at PaymentLedger.submit(PaymentLedger.java:12)
+	at IndependentBoundaryTest.replay(IndependentBoundaryTest.java:43)
+	at IndependentBoundaryTest.lambda$main$8(IndependentBoundaryTest.java:111)
+	at IndependentBoundaryTest.test(IndependentBoundaryTest.java:57)
+	at IndependentBoundaryTest.main(IndependentBoundaryTest.java:107)
+2026-11-08T15:54:00.510858800Z PASS B09 long amounts with identical low 32 bits
+2026-11-08T15:54:00.511857100Z PASS B10 failure then successful retry
+2026-11-08T15:54:00.512857600Z PASS B11 repeated provider failures then retry
+2026-11-08T15:54:00.512857600Z PASS B12 failed attempt does not bind amount
+2026-11-08T15:54:00.513856500Z PASS B13 committed replay bypasses provider fault
+2026-11-08T15:54:00.514864500Z PASS B14 conflict remains invalid under provider fault
+2026-11-08T15:54:00.515860500Z PASS B15 validation takes precedence over provider fault
+2026-11-08T15:54:00.515860500Z PASS B16 committed key still rejects invalid amounts
+2026-11-08T15:54:00.517868900Z PASS B17 key case is significant
+2026-11-08T15:54:00.518954400Z PASS B18 nonblank key padding is significant
+2026-11-08T15:54:00.518954400Z PASS B19 distinct String objects have value identity
+2026-11-08T15:54:00.519970800Z PASS B20 hash collisions retain distinct keys
+2026-11-08T15:54:00.520970700Z PASS B21 Unicode normalization is not key identity
+2026-11-08T15:54:00.521969200Z PASS B22 numeric-looking identifiers stay exact
+2026-11-08T15:54:00.522971800Z PASS B23 mixed-key failure conflict replay sequence
+2026-11-08T15:54:00.523966800Z PASS B24 receipt uniqueness is independent of amount
+2026-11-08T15:54:00.523966800Z PASS B25 invalid first attempt does not poison key
+2026-11-08T15:54:00.524967400Z FAIL B26 adjacent long-maximum conflict preserves receipt: java.lang.IllegalArgumentException: conflicting parameters
+java.lang.IllegalArgumentException: conflicting parameters
+	at PaymentLedger.submit(PaymentLedger.java:12)
+	at IndependentBoundaryTest.replay(IndependentBoundaryTest.java:43)
+	at IndependentBoundaryTest.lambda$main$26(IndependentBoundaryTest.java:222)
+	at IndependentBoundaryTest.test(IndependentBoundaryTest.java:57)
+	at IndependentBoundaryTest.main(IndependentBoundaryTest.java:218)
+2026-11-08T15:54:00.524967400Z CASES=26 FAILURES=3
+Exception in thread "main" java.lang.AssertionError: Independent boundary cases failed: 3
+	at IndependentBoundaryTest.main(IndependentBoundaryTest.java:225)
